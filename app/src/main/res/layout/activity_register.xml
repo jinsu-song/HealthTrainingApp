@@ -1,9 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="15dp"
     tools:context=".RegisterActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <EditText
+        android:id="@+id/edtRegisterName"
+        android:layout_width="@dimen/LoginWidth"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:hint="이름"
+        />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+    <EditText
+        android:id="@+id/edtRegisterID"
+        android:layout_width="@dimen/LoginWidth"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="아이디"
+        />
+    <Button
+        android:id="@+id/btnIsUniqueID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="중복확인"
+        android:textSize="@dimen/TextSize"
+        android:textStyle="bold"
+        />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/edtRegisterPassword1"
+        android:layout_width="@dimen/LoginWidth"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+
+        android:hint="비밀번호"
+        />
+
+    <EditText
+        android:id="@+id/edtRegisterPassword2"
+        android:layout_width="@dimen/LoginWidth"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+
+        android:hint="비밀번호확인"
+        />
+
+    <EditText
+        android:id="@+id/edtRegisterPhone"
+        android:layout_width="@dimen/LoginWidth"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="전화번호"
+        />
+
+    <EditText
+        android:id="@+id/edtRegisterAge"
+        android:layout_width="@dimen/LoginWidth"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+
+        android:hint="나이"
+        />
+
+    <EditText
+        android:id="@+id/edtRegisterAddress"
+        android:layout_width="@dimen/LoginWidth"
+        android:layout_height="wrap_content"
+        android:hint="주소 입력"
+        tools:layout_editor_absoluteX="58dp"
+        tools:layout_editor_absoluteY="89dp" />
+    <RadioGroup
+        android:id="@+id/rdoGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+        <RadioButton
+            android:id="@+id/rdoMan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="50dp"
+            android:text="남자"
+            tools:layout_editor_absoluteX="200dp"
+            tools:layout_editor_absoluteY="492dp" />
+        <RadioButton
+            android:id="@+id/rdoWoman"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="여자"
+            tools:layout_editor_absoluteX="58dp"
+            tools:layout_editor_absoluteY="492dp" />
+
+    </RadioGroup>
+
+
+
+    <Button
+        android:id="@+id/buttonRegister"
+        android:layout_width="@dimen/LoginWidth"
+        android:layout_height="wrap_content"
+        android:text="회원가입하기"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:textSize="@dimen/TextSize"/>
+
+</LinearLayout>
