@@ -45,7 +45,6 @@
         android:layout_width="@dimen/LoginWidth"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-
         android:hint="비밀번호"
         />
 
@@ -54,9 +53,15 @@
         android:layout_width="@dimen/LoginWidth"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-
         android:hint="비밀번호확인"
         />
+    <TextView
+        android:id="@+id/tvPasswordConfirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="10sp"
+        android:textColor="@color/red"/>
 
     <EditText
         android:id="@+id/edtRegisterPhone"

@@ -2,7 +2,10 @@ package com.sample.healthtrainingapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,15 +24,35 @@ public class MainActivity extends AppCompatActivity {
 
     private Button btnRegister, btnLogin;
     private EditText edtPassword, edtID;
+    public static final int TYPE_WIFI = 1;
+    public static final int TYPE_MOBILE = 2;
+    public static final int TYPE_NOT_CONNECTED = 3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // 인터넷 연결유무 확인
+        boolean internetState = getConnectivityStatus(this);
+        if (internetState ==false){
+            Toast.makeText(this, "인터넷 연결이 되어 있지 않습니다.", Toast.LENGTH_SHORT).show();
+        }
+
         // 위젯 Id 가져오기
         findViewByIdFunc();
+
+        // 이벤트 처리
         eventHandlerFunc();
     }   // end of onCreate
+
+    public static boolean getConnectivityStatus(Context context){
+        ConnectivityManager manager = (ConnectivityManager)context.getSystemService(context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = manager.getActiveNetworkInfo();
+        if(networkInfo != null){
+            return true;
+        }
+        return false;
+    }   // end of getConnectivityStatus
 
     private void eventHandlerFunc() {
         btnRegister.setOnClickListener(v->{
