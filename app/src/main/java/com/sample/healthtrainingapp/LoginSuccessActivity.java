@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.ViewFlipper;
 
 import me.relex.circleindicator.CircleIndicator3;
 
@@ -26,10 +27,11 @@ public class LoginSuccessActivity extends AppCompatActivity {
     private LinearLayout linearLayout;
     private ViewPager2 viewPager1, viewPager2, viewPager3, viewPager4, viewPager5;
     private CircleIndicator3 indicator1, indicator2, indicator3, indicator4, indicator5;
-
     private FragmentStateAdapter pagerAdapter, pagerAdapter2, pagerAdapter3, pagerAdapter4, pagerAdapter5;
 
     private int numberPage = 4;
+
+    private ViewFlipper viewFlipper;
 
     // 로그인 또는 회원가입 페이지에서 id값을 intent로 받는 변수
     private String id;
@@ -55,21 +57,33 @@ public class LoginSuccessActivity extends AppCompatActivity {
         // 이벤트 처리
         eventHandlerFunc();
 
-        ViewPager1Func();
+        viewFlipperFunc();
 
-        ViewPager2Func();
 
-        ViewPager3Func();
+        ViewPagerFunc1();
 
-        ViewPager4Func();
+        ViewPagerFunc2();
 
-        ViewPager5Func();
+        ViewPagerFunc3();
+
+        ViewPagerFunc4();
+
+        ViewPagerFunc5();
+
 
 
         pageMargin = getResources().getDimensionPixelOffset(R.dimen.pageMargin);
         pageOffset = getResources().getDimensionPixelOffset(R.dimen.offset);
 
     }   // end of onCreate
+
+    private void viewFlipperFunc() {
+        //2초씩 속도 제한
+        viewFlipper.setFlipInterval(2000);
+        //자동으로 화면이 바뀌게 하는거(회사 소개라던가)
+        viewFlipper.setAutoStart(true);
+    }
+
 
     private void eventHandlerFunc() {
         btnPT_Reservation.setOnClickListener(v->{
@@ -79,38 +93,29 @@ public class LoginSuccessActivity extends AppCompatActivity {
         });
     }   // end of eventHandlerFunc
 
-    private void ViewPager5Func() {
-        //ViewPager2
-        viewPager5 = findViewById(R.id.viewPager5);
 
-        //Adapter
-        //1. 프래그먼트 어댑터를 만들고 보여줄 개수를 설정한다
-        //2. 프래그먼트 어댑터를 viewPager2 에 연결시켜준다
-        //프래그먼트를 어디서 보여줄건지, 개수는 몇개인지
+    private void ViewPagerFunc5() {
+
         pagerAdapter5 = new FragmentAdapter(this, numberPage);
         viewPager5.setAdapter(pagerAdapter5);
 
-        //Indicator
+
         indicator5 = findViewById(R.id.indicator5);
 
 
-        //2. circleIndicator 에 viewpager2를 연결해주면 자동으로 개수를 체크해서 실행해준다
-        //전체 개수에서 현재 보여줄 위치를 지정한다
         indicator5.setViewPager(viewPager5);
         indicator5.createIndicators(numberPage, 0);
 
 
-        //3. viewPager2 에 방향 설정 좌우, 상하
+
         viewPager5.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
 
 
 
-        //ViewPager2 Item을 200개 만들었으니 현재 위치를 100으로setCurrentItem(100) 하여 좌우로 슬라이딩 가능하도록 하였습니다.
-        //4.viewPager2 에서 슬라이딩 이 몇개까지 가능한지
         viewPager5.setCurrentItem(100);
         viewPager5.setOffscreenPageLimit(3);
 
-        //5. viewPager3 event처리
+
         viewPager5.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int
@@ -130,7 +135,8 @@ public class LoginSuccessActivity extends AppCompatActivity {
             }
         });
 
-        //setPageTransformer를 통해 프래그먼트간 애니메이션 맞춤설정도 가능합니다.
+
+
         viewPager5.setPageTransformer(new ViewPager2.PageTransformer() {
             @Override
             public void transformPage(@NonNull View page, float position) {
@@ -151,38 +157,28 @@ public class LoginSuccessActivity extends AppCompatActivity {
     }
 
 
-    private void ViewPager4Func() {
-        //ViewPager2
-        viewPager4 = findViewById(R.id.viewPager4);
+    private void ViewPagerFunc4() {
 
-        //Adapter
-        //1. 프래그먼트 어댑터를 만들고 보여줄 개수를 설정한다
-        //2. 프래그먼트 어댑터를 viewPager2 에 연결시켜준다
-        //프래그먼트를 어디서 보여줄건지, 개수는 몇개인지
         pagerAdapter4 = new FragmentAdapter(this, numberPage);
         viewPager4.setAdapter(pagerAdapter4);
 
-        //Indicator
+
         indicator4 = findViewById(R.id.indicator4);
 
 
-        //2. circleIndicator 에 viewpager2를 연결해주면 자동으로 개수를 체크해서 실행해준다
-        //전체 개수에서 현재 보여줄 위치를 지정한다
+
         indicator4.setViewPager(viewPager4);
         indicator4.createIndicators(numberPage, 0);
 
 
-        //3. viewPager2 에 방향 설정 좌우, 상하
         viewPager4.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
 
 
 
-        //ViewPager2 Item을 200개 만들었으니 현재 위치를 100으로setCurrentItem(100) 하여 좌우로 슬라이딩 가능하도록 하였습니다.
-        //4.viewPager2 에서 슬라이딩 이 몇개까지 가능한지
         viewPager4.setCurrentItem(100);
         viewPager4.setOffscreenPageLimit(3);
 
-        //5. viewPager3 event처리
+
         viewPager4.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int
@@ -203,7 +199,7 @@ public class LoginSuccessActivity extends AppCompatActivity {
         });
 
 
-        //setPageTransformer를 통해 프래그먼트간 애니메이션 맞춤설정도 가능합니다.
+
         viewPager4.setPageTransformer(new ViewPager2.PageTransformer() {
             @Override
             public void transformPage(@NonNull View page, float position) {
@@ -225,40 +221,31 @@ public class LoginSuccessActivity extends AppCompatActivity {
     }
 
 
+    private void ViewPagerFunc3() {
 
-    private void ViewPager3Func() {
-        //ViewPager2
-        viewPager3 = findViewById(R.id.viewPager3);
-
-        //Adapter
-        //1. 프래그먼트 어댑터를 만들고 보여줄 개수를 설정한다
-        //2. 프래그먼트 어댑터를 viewPager2 에 연결시켜준다
-        //프래그먼트를 어디서 보여줄건지, 개수는 몇개인지
         pagerAdapter3 = new FragmentAdapter(this, numberPage);
         viewPager3.setAdapter(pagerAdapter3);
 
-        //Indicator
+
         indicator3 = findViewById(R.id.indicator3);
 
 
-        //2. circleIndicator 에 viewpager2를 연결해주면 자동으로 개수를 체크해서 실행해준다
-        //전체 개수에서 현재 보여줄 위치를 지정한다
+
         indicator3.setViewPager(viewPager3);
         indicator3.createIndicators(numberPage, 0);
 
 
-        //3. viewPager2 에 방향 설정 좌우, 상하
+
         viewPager3.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
 
 
 
-        //ViewPager2 Item을 200개 만들었으니 현재 위치를 100으로setCurrentItem(100) 하여 좌우로 슬라이딩 가능하도록 하였습니다.
-        //4.viewPager2 에서 슬라이딩 이 몇개까지 가능한지
+
         viewPager3.setCurrentItem(100);
         viewPager3.setOffscreenPageLimit(3);
 
 
-        //5. viewPager3 event처리
+
         viewPager3.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int
@@ -279,7 +266,7 @@ public class LoginSuccessActivity extends AppCompatActivity {
         });
 
 
-        //setPageTransformer를 통해 프래그먼트간 애니메이션 맞춤설정도 가능합니다.
+
         viewPager3.setPageTransformer(new ViewPager2.PageTransformer() {
             @Override
             public void transformPage(@NonNull View page, float position) {
@@ -302,39 +289,31 @@ public class LoginSuccessActivity extends AppCompatActivity {
     }
 
 
-    private void ViewPager2Func() {
-        //ViewPager2
-        viewPager2 = findViewById(R.id.viewPager2);
+    private void ViewPagerFunc2() {
 
-        //Adapter
-        //1. 프래그먼트 어댑터를 만들고 보여줄 개수를 설정한다
-        //2. 프래그먼트 어댑터를 viewPager2 에 연결시켜준다
-        //프래그먼트를 어디서 보여줄건지, 개수는 몇개인지
         pagerAdapter2 = new FragmentAdapter(this, numberPage);
         viewPager2.setAdapter(pagerAdapter2);
 
-        //Indicator
+
         indicator2 = findViewById(R.id.indicator2);
 
 
-        //2. circleIndicator 에 viewpager2를 연결해주면 자동으로 개수를 체크해서 실행해준다
-        //전체 개수에서 현재 보여줄 위치를 지정한다
+
         indicator2.setViewPager(viewPager2);
         indicator2.createIndicators(numberPage, 0);
 
 
-        //3. viewPager2 에 방향 설정 좌우, 상하
+
         viewPager2.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
 
 
 
-        //ViewPager2 Item을 200개 만들었으니 현재 위치를 100으로setCurrentItem(100) 하여 좌우로 슬라이딩 가능하도록 하였습니다.
-        //4.viewPager2 에서 슬라이딩 이 몇개까지 가능한지
+
         viewPager2.setCurrentItem(100);
         viewPager2.setOffscreenPageLimit(3);
 
 
-        //5. viewPager2 event처리
+
         viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int
@@ -355,7 +334,7 @@ public class LoginSuccessActivity extends AppCompatActivity {
         });
 
 
-        //setPageTransformer를 통해 프래그먼트간 애니메이션 맞춤설정도 가능합니다.
+
         viewPager2.setPageTransformer(new ViewPager2.PageTransformer() {
             @Override
             public void transformPage(@NonNull View page, float position) {
@@ -377,9 +356,7 @@ public class LoginSuccessActivity extends AppCompatActivity {
     }
 
 
-    private void ViewPager1Func() {
-        //ViewPager2
-        viewPager1 = findViewById(R.id.viewPager1);
+    private void ViewPagerFunc1() {
 
         //Adapter
         //1. 프래그먼트 어댑터를 만들고 보여줄 개수를 설정한다
@@ -399,7 +376,7 @@ public class LoginSuccessActivity extends AppCompatActivity {
         //3. viewPager2 에 방향 설정 좌우, 상하
         viewPager1.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
 
-        //ViewPager2 Item을 200개 만들었으니 현재 위치를 100으로setCurrentItem(100) 하여 좌우로 슬라이딩 가능하도록 하였습니다.
+        //ViewPager2 Item을 200개 만들었으니 현재 위치를 100으로setCurrentItem(100) 하여 좌우로 슬라이딩 가능하도록 함
         //4.viewPager2 에서 슬라이딩 이 몇개까지 가능한지
         viewPager1.setCurrentItem(100);
         viewPager1.setOffscreenPageLimit(3);
@@ -425,7 +402,7 @@ public class LoginSuccessActivity extends AppCompatActivity {
         });
 
 
-        //setPageTransformer를 통해 프래그먼트간 애니메이션 맞춤설정도 가능합니다.
+        //setPageTransformer를 통해 프래그먼트간 애니메이션 맞춤설정도 가능
         viewPager1.setPageTransformer(new ViewPager2.PageTransformer() {
             @Override
             public void transformPage(@NonNull View page, float position) {
@@ -447,7 +424,6 @@ public class LoginSuccessActivity extends AppCompatActivity {
 
 
 
-
     private void openAndCloseDrawable() {
         ibOpenDrawable.setOnClickListener(v->{
             drawerLayout.openDrawer(linearLayout);
@@ -465,5 +441,11 @@ public class LoginSuccessActivity extends AppCompatActivity {
         btnPT_Reservation = findViewById(R.id.btnPT_Reservation);
         btnChargeInfo = findViewById(R.id.btnChargeInfo);
         btnManagerPage = findViewById(R.id.btnManagerPage);
+        viewPager1 = findViewById(R.id.viewPager1);
+        viewPager2 = findViewById(R.id.viewPager2);
+        viewPager3 = findViewById(R.id.viewPager3);
+        viewPager4 = findViewById(R.id.viewPager4);
+        viewPager5 = findViewById(R.id.viewPager5);
+        viewFlipper = findViewById(R.id.viewFlipper);
     }   // end of findViewByIdFunc
 }
