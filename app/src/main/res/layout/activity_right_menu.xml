@@ -20,18 +20,21 @@
             android:padding="20dp"
             android:orientation="vertical">
                 <Button
+                    android:id="@+id/btnPT_Reservation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="PT 예약"
                     android:textSize="15sp"
                     android:textStyle="bold"/>
                 <Button
+                    android:id="@+id/btnChargeInfo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="요금 안내"
                     android:textSize="15sp"
                     android:textStyle="bold"/>
                 <Button
+                    android:id="@+id/btnManagerPage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="관리자 page"

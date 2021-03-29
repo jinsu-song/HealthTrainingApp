@@ -7,8 +7,10 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
@@ -19,6 +21,7 @@ import me.relex.circleindicator.CircleIndicator3;
  */
 public class LoginSuccessActivity extends AppCompatActivity {
     private ImageButton ibOpenDrawable, ibCloseDrawable;
+    private Button btnPT_Reservation, btnChargeInfo, btnManagerPage;
     private DrawerLayout drawerLayout;
     private LinearLayout linearLayout;
     private ViewPager2 viewPager1, viewPager2, viewPager3, viewPager4, viewPager5;
@@ -28,6 +31,9 @@ public class LoginSuccessActivity extends AppCompatActivity {
 
     private int numberPage = 4;
 
+    // 로그인 또는 회원가입 페이지에서 id값을 intent로 받는 변수
+    private String id;
+
     private static float pageMargin;
     private static float pageOffset;
 
@@ -35,12 +41,19 @@ public class LoginSuccessActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_success);
+        Intent intent = getIntent();
+
+        id = intent.getStringExtra("id");
+
 
         // 위젯 아이디 찾기
         findViewByIdFunc();
 
         // DrawerLayout 열고 닫기 이벤트
         openAndCloseDrawable();
+
+        // 이벤트 처리
+        eventHandlerFunc();
 
         ViewPager1Func();
 
@@ -57,6 +70,14 @@ public class LoginSuccessActivity extends AppCompatActivity {
         pageOffset = getResources().getDimensionPixelOffset(R.dimen.offset);
 
     }   // end of onCreate
+
+    private void eventHandlerFunc() {
+        btnPT_Reservation.setOnClickListener(v->{
+            Intent intent = new Intent(LoginSuccessActivity.this, PT_ReservationActivity.class);
+            intent.putExtra("id",id);
+            startActivity(intent);
+        });
+    }   // end of eventHandlerFunc
 
     private void ViewPager5Func() {
         //ViewPager2
@@ -441,5 +462,8 @@ public class LoginSuccessActivity extends AppCompatActivity {
         ibCloseDrawable = findViewById(R.id.ibCloseDrawable);
         linearLayout = findViewById(R.id.linearLayout);
         drawerLayout = findViewById(R.id.drawerLayout);
+        btnPT_Reservation = findViewById(R.id.btnPT_Reservation);
+        btnChargeInfo = findViewById(R.id.btnChargeInfo);
+        btnManagerPage = findViewById(R.id.btnManagerPage);
     }   // end of findViewByIdFunc
 }

@@ -82,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
                                 if(id.equals(getId) && password.equals(getPassword)){
                                     Intent intent = new Intent(MainActivity.this, LoginSuccessActivity.class);
                                     Toast.makeText(MainActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();
+                                    intent.putExtra("id",id);
                                     startActivity(intent);
 
                                 }else{
