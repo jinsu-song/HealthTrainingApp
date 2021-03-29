@@ -3,7 +3,7 @@
     <dimen name = "LoginWidth">200dp</dimen>
     <dimen name = "TextSize">18sp</dimen>
 
-    <dimen name="pageMargin">20dp</dimen>
+    <dimen name="pageMargin">10dp</dimen>
     <dimen name="offset">20dp</dimen>
     <dimen name="pageMarginAndOffset">30dp</dimen>
     <dimen name="frameSize">200dp</dimen>

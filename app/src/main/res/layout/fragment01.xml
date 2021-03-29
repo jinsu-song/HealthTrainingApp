@@ -5,40 +5,32 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="@dimen/frameSize"
+        android:padding="10dp"
+        android:layout_marginLeft="@dimen/pageMarginAndOffset"
+        android:layout_marginRight="@dimen/pageMarginAndOffset"
         android:background="#FFF176"
         android:orientation="vertical">
 
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/tvName1"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/frameSize"
-            android:layout_marginLeft="@dimen/pageMarginAndOffset"
-            android:layout_marginRight="@dimen/pageMarginAndOffset"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-            android:orientation="vertical"
-            android:padding="10dp">
-
-            <TextView
-                android:id="@+id/tvName1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:textColor="#000000"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:id="@+id/imgBanner1"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginTop="30dp"
-                android:background="#FCE4EC"
-                android:contentDescription="@string/app_name" />
+        <ImageView
+            android:id="@+id/imgBanner1"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="30dp"
+            android:background="#FCE4EC"
+            android:contentDescription="@string/app_name" />
 
 
-        </LinearLayout>
 
     </LinearLayout>
 

@@ -64,6 +64,42 @@
                         android:textSize="20sp"/>
 
                     <LinearLayout
+                        android:id="@+id/linear2"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp">
+
+
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/frameSize">
+
+                            <androidx.viewpager2.widget.ViewPager2
+                                android:id="@+id/viewPager2"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/frameSize"/>
+
+                            <me.relex.circleindicator.CircleIndicator3
+                                android:id="@+id/indicator2"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:layout_gravity="bottom"/>
+
+                        </FrameLayout>
+
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="식단 추천"
+                        android:layout_marginTop="20sp"
+                        android:textColor="#000000"
+                        android:textSize="20sp"/>
+
+                    <LinearLayout
                         android:id="@+id/linear1"
                         android:layout_width="match_parent"
                         android:layout_height="200dp">
@@ -90,39 +126,15 @@
 
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:id="@+id/linear2"
-                        android:layout_width="match_parent"
-                        android:layout_marginTop="10dp"
-                        android:layout_height="200dp"
-                        android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="식단 추천"
-                                android:textColor="#000000"
-                                android:textSize="20sp"/>
-
-                        <FrameLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/frameSize">
-
-                            <androidx.viewpager2.widget.ViewPager2
-                                android:id="@+id/viewPager2"
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/frameSize"/>
-
-                            <me.relex.circleindicator.CircleIndicator3
-                                android:id="@+id/indicator2"
-                                android:layout_width="match_parent"
-                                android:layout_height="48dp"
-                                android:layout_gravity="bottom"/>
-
-                        </FrameLayout>
 
 
-                    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="단백질 추천"
+                        android:layout_marginTop="20sp"
+                        android:textColor="#000000"
+                        android:textSize="20sp"/>
 
                     <LinearLayout
                         android:id="@+id/linear3"
