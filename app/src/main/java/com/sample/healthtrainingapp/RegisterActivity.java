@@ -27,8 +27,6 @@ public class RegisterActivity extends AppCompatActivity {
     private static String gender;
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
