@@ -6,8 +6,6 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,6 +14,16 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="4">
+            <GridView
+                android:id="@+id/gridView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:numColumns="2"/>
 
         </LinearLayout>
 
@@ -59,7 +67,6 @@
             android:stretchMode="columnWidth"
             android:horizontalSpacing="1dp"
             android:background="#ffbbbbbb"/>
-
 
     </LinearLayout>
 

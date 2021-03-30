@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button btnRegister, btnLogin;
     private EditText edtPassword, edtID;
+    static RequestQueue requestQueue;
     public static final int TYPE_WIFI = 1;
     public static final int TYPE_MOBILE = 2;
     public static final int TYPE_NOT_CONNECTED = 3;
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         eventHandlerFunc();
     }   // end of onCreate
 
+    // 인터넷 연결유무 확인
     public static boolean getConnectivityStatus(Context context){
         ConnectivityManager manager = (ConnectivityManager)context.getSystemService(context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = manager.getActiveNetworkInfo();
@@ -103,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                     }   // end of onResponse
                 };
                 LoginRequest loginRequest = new LoginRequest(id,password,listener);
-                RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
+                requestQueue = Volley.newRequestQueue(MainActivity.this);
                 requestQueue.add(loginRequest);
             }   // end of onClick
         });
