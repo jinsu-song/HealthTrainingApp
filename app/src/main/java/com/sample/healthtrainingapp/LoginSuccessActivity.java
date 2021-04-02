@@ -433,6 +433,7 @@ public class LoginSuccessActivity extends AppCompatActivity {
         });
     }   // end of openAndCloseDrawable
 
+
     private void findViewByIdFunc() {
         ibOpenDrawable = findViewById(R.id.ibOpenDrawable);
         ibCloseDrawable = findViewById(R.id.ibCloseDrawable);
