@@ -40,6 +40,13 @@
                     android:text="관리자 page"
                     android:textSize="15sp"
                     android:textStyle="bold"/>
+                <Button
+                    android:id="@+id/btnStopWatch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="스톱워치"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
 
         </LinearLayout>
 

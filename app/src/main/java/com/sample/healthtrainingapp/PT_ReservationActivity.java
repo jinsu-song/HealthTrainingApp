@@ -1,5 +1,6 @@
 package com.sample.healthtrainingapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,84 +24,48 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.StringTokenizer;
 
 public class PT_ReservationActivity extends AppCompatActivity {
     private String id;
     private TrainerGridAdapter trainerGridAdapter;
-    private GridView monthView, trainerGridView;
-    private Button monthPrevious, monthNext;
-    private TextView monthText;
-    private MonthAdapter monthViewAdapter;
+    private GridView trainerGridView;
+    private CalendarView calendarView;
+    private Date date = new Date();
+    public static final long TIME_CASTING_TO_LONG_10DAYS = 864000000L;
     private static ArrayList<TrainerData> trainerList = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_p_t__reservation);
 
+        // 현재 사용자의 id 가져오기
         Intent intent = getIntent();
         id = intent.getStringExtra("id");
 
+        // 위젯 ID 찾기
         findViewByIdFunc();
+
+        // 이벤트 처리
         eventHandlerFunc();
 
         trainerGridAdapter = new TrainerGridAdapter(PT_ReservationActivity.this,trainerList);
         trainerGridView.setAdapter(trainerGridAdapter);
 
-        int curYear = monthViewAdapter.getCurYear();
-        int curMonth = monthViewAdapter.getCurMonth();
-        monthText.setText(curYear + "년 " + (curMonth + 1) + "월 ");
-
 
     }   // end of onCreate
 
     private void eventHandlerFunc() {
-//        monthText.setOnClickListener(v->{
-//            Toast.makeText(this, "왜안되샹", Toast.LENGTH_SHORT).show();
-//            Response.Listener<String> listener = new Response.Listener<String>() {
-//                String trainerName,trainerPosition,trainerCareer, picture;
-//
-//                @Override
-//                public void onResponse(String response) {
-//                    try{
-//                        JSONObject jo = new JSONObject(response);
-//                        JSONArray ja = jo.getJSONArray("webnautes");
-//                        //boolean success = jo.getBoolean("success");
-//
-////                    if (success == true) {
-////                        trainerName = jo.getString("trainerName");
-////                        trainerPosition = jo.getString("trainerPosition");
-////                        trainerCareer = jo.getString("trainerCareer");
-////                        picture = jo.getString("picture");
-//                        if (jo != null){
-//
-//                            Toast.makeText(PT_ReservationActivity.this, "jo null", Toast.LENGTH_SHORT).show();
-//                        }
-//                        for (int i = 0 ; i < ja.length();i++){
-//                            JSONObject item = ja.getJSONObject(i);
-//                            trainerName = item.getString("trainerName");
-//                            trainerPosition = item.getString("trainerPosition");
-//                            trainerCareer = item.getString("trainerCareer");
-//                            picture = item.getString("picture");
-//                            TrainerData trainerData = new TrainerData(trainerName,trainerPosition,trainerCareer,picture);
-//                            trainerList.add(trainerData);
-//                        }
-////                    } else {
-////                        Toast.makeText(PT_ReservationActivity.this, "가져오는데 실패", Toast.LENGTH_SHORT).show();
-////                        Log.d("@@@@@@@@@@@@@@", "가져오는데 실패");
-////                    }   // end of else
-//                    } catch(JSONException jsone){
-//                        Log.d("@@@@@@@@@@@@", "JSONException");
-//                    }
-//                }   // end of onResponse
-//
-//            };
-//            TrainerRequest trainerRequest = new TrainerRequest(listener);
-//            RequestQueue requestQueue = Volley.newRequestQueue(PT_ReservationActivity.this);
-//            requestQueue.add(trainerRequest);
-//        });
+
         String serverUrl = "http://songjinsu486.dothome.co.kr/project_php_files/GetTrainerProfileRequest.php";
 
+        // JsonArray값을 받아올 것이므로 JSONObject가 아닌 JsonArrayRequest이다.
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.POST,serverUrl,null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
@@ -108,7 +74,6 @@ public class PT_ReservationActivity extends AppCompatActivity {
                 try{
                     for (int i = 0; i < response.length(); i++) {
                         JSONObject jsonObject = response.getJSONObject(i);
-//                    String trainerName,trainerPosition,trainerCareer, picture;
                         String trainerName = jsonObject.getString("trainerName");
                         String trainerPosition = jsonObject.getString("trainerPosition");
                         String trainerCareer = jsonObject.getString("trainerCareer");
@@ -124,43 +89,38 @@ public class PT_ReservationActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(PT_ReservationActivity.this);
         requestQueue.add(jsonArrayRequest);
 
-
-
-
-        // 이전달을 누르면 취해지는 액션
-        monthPrevious.setOnClickListener(v->{
-            monthViewAdapter.setPreviousMonth();
-            monthViewAdapter.notifyDataSetChanged();    // 무효화 영역처리 요구한다.
-            int curYear = monthViewAdapter.getCurYear();
-            int curMonth = monthViewAdapter.getCurMonth();
-            monthText.setText(curYear + "년 " + (curMonth + 1) + "월 ");
-        });
-
-        monthNext.setOnClickListener(v->{
-            monthViewAdapter.setNextMonth();
-            monthViewAdapter.notifyDataSetChanged();    // 무효화 영역처리 요구한다.
-            int curYear = monthViewAdapter.getCurYear();
-            int curMonth = monthViewAdapter.getCurMonth();
-            monthText.setText(curYear + "년 " + (curMonth + 1) + "월 ");
-        });
-
-        // 달력에 해당 date를 누르는 이벤트 처리
-        monthView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        trainerGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                MonthItem curItem = (MonthItem)monthViewAdapter.getItem(position);
-                Toast.makeText(getApplicationContext(),String.valueOf(curItem.getDayValue()), Toast.LENGTH_SHORT).show();
+
+            }   // end of onItemClick
+        });
+
+        calendarView.setMaxDate(getMaxDateToLong());
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+                Toast.makeText(PT_ReservationActivity.this, dayOfMonth+"", Toast.LENGTH_SHORT).show();
             }
         });
+
+
     }   // end of eventHandlerFunc
 
+    private Long getMaxDateToLong(){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar calendar = Calendar.getInstance();
+
+        String strCurrentDay = calendar.get(Calendar.YEAR) +"-"+
+                (calendar.get(Calendar.MONTH)+1)+"-" +calendar.get(Calendar.DATE);
+        Date currentDay = dateFormat.parse(strCurrentDay,new ParsePosition(0));
+        Long currentTimeLong = currentDay.getTime();
+
+        return currentTimeLong + TIME_CASTING_TO_LONG_10DAYS;
+    }
+
     private void findViewByIdFunc() {
-        monthView = findViewById(R.id.monthView);
-        monthPrevious = findViewById(R.id.monthPrevious);
-        monthNext = findViewById(R.id.monthNext);
-        monthText = findViewById(R.id.monthText);
+        calendarView = findViewById(R.id.calendarView);
         trainerGridView = findViewById(R.id.gridView);
-        monthViewAdapter = new MonthAdapter(this);
-        monthView.setAdapter(monthViewAdapter);
     }   // end of findViewByIdFunc
 }

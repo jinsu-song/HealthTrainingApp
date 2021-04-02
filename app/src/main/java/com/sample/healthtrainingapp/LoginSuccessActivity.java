@@ -22,7 +22,7 @@ import me.relex.circleindicator.CircleIndicator3;
  */
 public class LoginSuccessActivity extends AppCompatActivity {
     private ImageButton ibOpenDrawable, ibCloseDrawable;
-    private Button btnPT_Reservation, btnChargeInfo, btnManagerPage;
+    private Button btnPT_Reservation, btnChargeInfo, btnManagerPage,btnStopWatch;
     private DrawerLayout drawerLayout;
     private LinearLayout linearLayout;
     private ViewPager2 viewPager1, viewPager2, viewPager3, viewPager4, viewPager5;
