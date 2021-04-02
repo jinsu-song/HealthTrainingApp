@@ -1,9 +1,13 @@
 package com.sample.healthtrainingapp;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,7 +16,8 @@ import androidx.fragment.app.Fragment;
 
 public class FragmentFirst extends Fragment {
     private int fragNumber;
-    private TextView tvName1;
+    private ImageView iv1;
+    private Button btnPlay1;
 
     public static FragmentFirst newInstance(int fragNumber){
         FragmentFirst fragmentFirst = new FragmentFirst();
@@ -40,8 +45,20 @@ public class FragmentFirst extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstancdState){
         super.onViewCreated(view,savedInstancdState);
-        tvName1 = (TextView) view.findViewById(R.id.tvName1);
-        tvName1.setText("Page " + fragNumber);
+        btnPlay1 = (Button) view.findViewById(R.id.btnPlay1);
+
+        iv1 = view.findViewById(R.id.iv1);
+
+        iv1.setImageResource(R.drawable.decline);
+
+        btnPlay1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri uri = Uri.parse("https://www.youtube.com/watch?v=AeDw1tlXczo");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

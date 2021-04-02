@@ -26,10 +26,6 @@ public class FragmentAdapter  extends FragmentStateAdapter {
             case 1:  return  FragmentSecond.newInstance(index+1);
             case 2:  return  FragmentThird.newInstance(index+1);
             case 3:  return  FragmentFourth.newInstance(index+1);
-//            case 4:  return  FragmentFifth.newInstance(index+1);
-//            case 5:  return  FragmentSixth.newInstance(index+1);
-//            case 6:  return  FragmentSeventh.newInstance(index+1);
-//            case 7:  return  FragmentEight.newInstance(index+1);
             default: Log.e("FragmentAdapter:", "FragmentAdapter 에러발생");
         }
 
