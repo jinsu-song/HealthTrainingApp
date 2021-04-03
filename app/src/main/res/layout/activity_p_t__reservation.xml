@@ -13,7 +13,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="3">
+            android:layout_weight="4">
             <GridView
                 android:id="@+id/gridView"
                 android:layout_width="match_parent"
@@ -42,21 +42,26 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight="0.5"
+            android:gravity="center_horizontal">
             <Button
                 android:id="@+id/btn11Time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/ptBtnTimeMarginRight"
                 android:text="11:00"/>
             <Button
                 android:id="@+id/btn13Time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/ptBtnTimeMarginRight"
+
                 android:text="13:00"/>
             <Button
                 android:id="@+id/btn15Time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/ptBtnTimeMarginRight"
                 android:text="15:00"/>
             <Button
                 android:id="@+id/btn17Time"
@@ -64,6 +69,20 @@
                 android:layout_height="wrap_content"
                 android:text="17:00"/>
 
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/btnReservate"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="예약하기"
+                android:textStyle="bold"
+                android:textSize="@dimen/TextSize"/>
         </LinearLayout>
 
 

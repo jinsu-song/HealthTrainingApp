@@ -7,4 +7,5 @@
     <dimen name="offset">20dp</dimen>
     <dimen name="pageMarginAndOffset">30dp</dimen>
     <dimen name="frameSize">250dp</dimen>
+    <dimen name="ptBtnTimeMarginRight">15dp</dimen>
 </resources>

@@ -35,13 +35,16 @@ public class PT_ReservationActivity extends AppCompatActivity {
     private TrainerGridAdapter trainerGridAdapter;
     private GridView trainerGridView;
     private CalendarView calendarView;
-    private Button btn11Time,btn13Time,btn15Time,btn17Time;
+    private Button btn11Time,btn13Time,btn15Time,btn17Time,btnReservate;
     private Date date = new Date();
     public static final long TIME_CASTING_TO_LONG_10DAYS = 864000000L;
     private static ArrayList<TrainerData> trainerList = new ArrayList<>();
     private static ArrayList<ReservateData> reservatedDataList = new ArrayList<>();
     boolean flagVisibility = false;
     private static int trainerSeletedPosition = 0;
+    private static String reservatedDates = "";
+    private static String reservateTime = "";
+    private static int s_Year, s_Month, s_DayOfMonth;
 
 
     @Override
@@ -57,9 +60,13 @@ public class PT_ReservationActivity extends AppCompatActivity {
         findViewByIdFunc();
         calendarView.setVisibility(View.INVISIBLE);
 
+        // 예약 시간 설정하는 버튼 숨기기
+        buttonVisibility(View.INVISIBLE);
+
         // 이벤트 처리
         eventHandlerFunc();
 
+        // 그리드뷰 어댑터에 트레이너 정보를 셋팅하고 그리드뷰와 어댑터를 연결
         trainerGridAdapter = new TrainerGridAdapter(PT_ReservationActivity.this,trainerList);
         trainerGridView.setAdapter(trainerGridAdapter);
 
@@ -105,6 +112,8 @@ public class PT_ReservationActivity extends AppCompatActivity {
                 // 트레이너의 포지션을 저장
                 trainerSeletedPosition = position;
 
+                // 예약 시간 설정하는 버튼 숨기기
+                buttonVisibility(View.INVISIBLE);
 
             }   // end of onItemClick
         });
@@ -115,20 +124,26 @@ public class PT_ReservationActivity extends AppCompatActivity {
         // 달력에 최소 예약날짜를 정함
         calendarView.setMinDate(getMinDateToLong());
 
-        buttonVisibility(View.INVISIBLE);
-
-
-
+        final String TIME11 = "11:00";
+        final String TIME13 = "13:00";
+        final String TIME15 = "15:00";
+        final String TIME17 = "17:00";
         // 달력의 날짜를 누를 때 이벤트 처리
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+                s_Year = year;
+                s_Month = month;
+                s_DayOfMonth = dayOfMonth;
+                reservatedDataList.clear();
+
                 Response.Listener<String> listener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try{
                             JSONObject jo = new JSONObject(response);
-                            String reservatedDates = jo.getString("pt_Reservated");
+                            reservatedDates = jo.getString("pt_Reservated");
 
                             // 버튼이 보이게
                             buttonVisibility(View.VISIBLE);
@@ -138,10 +153,11 @@ public class PT_ReservationActivity extends AppCompatActivity {
                             btn15Time.setEnabled(true);
                             btn17Time.setEnabled(true);
 
+                            reservateTime = "";
                             String delims = ",";
                             String splitDate = reservatedDates;
 
-                            if (reservatedDates != null) {
+                            if (reservatedDates.length() != 0) {
                                 StringTokenizer st = new StringTokenizer(splitDate, delims);
                                 reservatedDataList.clear();
 
@@ -150,32 +166,28 @@ public class PT_ReservationActivity extends AppCompatActivity {
                                     reservatedDataList.add(new ReservateData(String.valueOf(st.nextElement())));
                                 }   // end of while
 
+
                                 for (int i = 0; i < reservatedDataList.size(); i++) {
 
-                                    if (reservatedDataList.get(i).getYear() == year && reservatedDataList.get(i).getMonth() == (month + 1) &&
-                                            reservatedDataList.get(i).getDayOfMonth() == dayOfMonth) {
+                                    if (reservatedDataList.get(i).getYear() == s_Year && reservatedDataList.get(i).getMonth() == (s_Month + 1) &&
+                                            reservatedDataList.get(i).getDayOfMonth() == s_DayOfMonth) {
                                         switch (reservatedDataList.get(i).getTime()) {
-                                            case "11:00":
-                                                btn11Time.setEnabled(false);
-                                                break;
-                                            case "13:00":
-                                                btn13Time.setEnabled(false);
-                                                break;
-                                            case "15:00":
-                                                btn15Time.setEnabled(false);
-                                                break;
-                                            case "17:00":
-                                                btn17Time.setEnabled(false);
-                                                break;
+
+                                            case TIME11:btn11Time.setEnabled(false); break;
+                                            case TIME13:btn13Time.setEnabled(false); break;
+                                            case TIME15:btn15Time.setEnabled(false); break;
+                                            case TIME17:btn17Time.setEnabled(false); break;
+
                                         }   // end of switch
                                     }
                                 }   // end of for
+                            } else{
                             }
+                            reservateTime = s_Year + "/" + (s_Month + 1) + "/" + s_DayOfMonth;
 
                         } catch (JSONException jsone){
                             Log.d("PT_ReservationActivity", "calendarView JSONObject error");
                         }
-
                     }   // end of onResponse
                 };  // end of Rosponse.Listener
                 PT_ReservatedRequest pt_reservatedRequest =
@@ -185,15 +197,88 @@ public class PT_ReservationActivity extends AppCompatActivity {
 
             }   // end of onSelectedDayChange
         });
+
+        btn11Time.setOnClickListener(v->{
+            if (reservatedDates.length() != 0){
+                reservateTime = reservatedDates + "," + reservateTime + ("/" + TIME11);
+            }else{
+                reservateTime = reservateTime + ("/" + TIME11);
+            }
+            btnReservate.setEnabled(true);
+
+        });
+
+        btn13Time.setOnClickListener(v->{
+            if (reservatedDates.length() != 0) {
+                reservateTime = reservatedDates + "," + reservateTime + ("/" + TIME13);
+            } else{
+                reservateTime = reservateTime + ("/" + TIME13);
+
+            }
+            btnReservate.setEnabled(true);
+
+        });
+
+        btn15Time.setOnClickListener(v->{
+            if (reservatedDates.length() != 0) {
+                reservateTime = reservatedDates + "," + reservateTime + ("/" + TIME15);
+            }else{
+                reservateTime = reservateTime + ("/" + TIME15);
+            }
+            btnReservate.setEnabled(true);
+
+        });
+
+        btn17Time.setOnClickListener(v->{
+            if (reservatedDates.length() != 0) {
+                reservateTime = reservatedDates + "," + reservateTime + ("/" + TIME17);
+            } else{
+                reservateTime = reservateTime + ("/" + TIME17);
+            }
+            btnReservate.setEnabled(true);
+
+        });
+
+        btnReservate.setOnClickListener(v->{
+            Response.Listener<String> listenerReservate= new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    try{
+                        JSONObject jo = new JSONObject(response);
+                        boolean success = jo.getBoolean("success");
+
+                        if (success == true) {
+                            Toast.makeText(PT_ReservationActivity.this, "예약되었습니다.", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(PT_ReservationActivity.this,LoginSuccessActivity.class);
+                            startActivity(intent);
+                        } else {
+                            Toast.makeText(PT_ReservationActivity.this, "예약 실패", Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (JSONException jsone){
+                        Log.d("PT_ReservationActivity","UPDATE Error At btnReservate");
+                    }
+
+                }   // end of onResponse
+            };  // end of Response.Listener
+            PT_ReservateUpdateRequest pt_reservateUpdateRequest =
+                    new PT_ReservateUpdateRequest(trainerList.get(trainerSeletedPosition).getTrainerName(), reservateTime, listenerReservate);
+            RequestQueue requestQueueUpdateTime = Volley.newRequestQueue(PT_ReservationActivity.this);
+            requestQueueUpdateTime.add(pt_reservateUpdateRequest);
+        });
+
+
+
     }   // end of eventHandlerFunc
 
+    // 예약 시간을 설정하는 버튼을 보이게 또는 안보이게
     private void buttonVisibility(int visibleORInvisible) {
         btn11Time.setVisibility(visibleORInvisible);
         btn13Time.setVisibility(visibleORInvisible);
         btn15Time.setVisibility(visibleORInvisible);
         btn17Time.setVisibility(visibleORInvisible);
+        btnReservate.setVisibility(visibleORInvisible);
+        btnReservate.setEnabled(false);
     }   // end of buttonVisibility
-
 
     // 트레이너 클릭시 달력이 보이게 또는 안보이게 셋팅
     private void calendarVisible_OR_Invisible(){
@@ -243,5 +328,6 @@ public class PT_ReservationActivity extends AppCompatActivity {
         btn13Time = findViewById(R.id.btn13Time);
         btn15Time = findViewById(R.id.btn15Time);
         btn17Time = findViewById(R.id.btn17Time);
+        btnReservate = findViewById(R.id.btnReservate);
     }   // end of findViewByIdFunc
 }
