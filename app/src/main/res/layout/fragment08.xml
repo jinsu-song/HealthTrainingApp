@@ -9,22 +9,24 @@
         android:padding="10dp"
         android:layout_marginLeft="@dimen/pageMarginAndOffset"
         android:layout_marginRight="@dimen/pageMarginAndOffset"
-        android:background="#81D4FA"
+        android:background="#FFF9C4"
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/iv3"
+            android:id="@+id/iv8"
             android:layout_marginTop="6dp"
             android:layout_width="300dp"
             android:layout_height="170dp"/>
 
         <Button
-            android:id="@+id/btnPlay3"
+            android:id="@+id/btnPlay8"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
             android:layout_gravity="left"
-            android:text="재생"/>
+            android:text="더보기"/>
+
 
 
     </LinearLayout>

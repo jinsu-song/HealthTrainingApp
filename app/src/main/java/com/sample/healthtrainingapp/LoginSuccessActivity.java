@@ -25,11 +25,10 @@ public class LoginSuccessActivity extends AppCompatActivity {
     private Button btnPT_Reservation, btnChargeInfo, btnManagerPage,btnStopWatch;
     private DrawerLayout drawerLayout;
     private LinearLayout linearLayout;
-    private ViewPager2 viewPager1, viewPager2, viewPager3, viewPager4, viewPager5;
-    private CircleIndicator3 indicator1, indicator2, indicator3, indicator4, indicator5;
-    private FragmentStateAdapter pagerAdapter, pagerAdapter2, pagerAdapter3, pagerAdapter4, pagerAdapter5;
+    private ViewPager2 viewPager1, viewPager2, viewPager3, viewPager4;
+    private CircleIndicator3 indicator1, indicator2, indicator3, indicator4;
+    private FragmentStateAdapter pagerAdapter, pagerAdapter2, pagerAdapter3, pagerAdapter4;
 
-    private int numberPage = 4;
 
     private ViewFlipper viewFlipper;
 
@@ -64,11 +63,10 @@ public class LoginSuccessActivity extends AppCompatActivity {
 
         ViewPagerFunc2();
 
-        ViewPagerFunc3();
+        //ViewPagerFunc3();
 
-        ViewPagerFunc4();
+        //ViewPagerFunc4();
 
-        ViewPagerFunc5();
 
 
 
@@ -94,204 +92,147 @@ public class LoginSuccessActivity extends AppCompatActivity {
     }   // end of eventHandlerFunc
 
 
-    private void ViewPagerFunc5() {
 
-        pagerAdapter5 = new FragmentAdapter(this, numberPage);
-        viewPager5.setAdapter(pagerAdapter5);
 
-
-        indicator5 = findViewById(R.id.indicator5);
-
-
-        indicator5.setViewPager(viewPager5);
-        indicator5.createIndicators(numberPage, 0);
-
-
-
-        viewPager5.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
-
-
-
-        viewPager5.setCurrentItem(100);
-        viewPager5.setOffscreenPageLimit(3);
-
-
-        viewPager5.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int
-                    positionOffsetPixels) {
-
-                super.onPageScrolled(position, positionOffset, positionOffsetPixels);
-                if (positionOffsetPixels == 0) {
-                    viewPager5.setCurrentItem(position);
-                }
-            }
-
-
-            @Override
-            public void onPageSelected(int position) {
-                super.onPageSelected(position);
-                indicator5.animatePageSelected(position % numberPage);
-            }
-        });
-
-
-
-        viewPager5.setPageTransformer(new ViewPager2.PageTransformer() {
-            @Override
-            public void transformPage(@NonNull View page, float position) {
-                float myOffset = position * -(2 * pageOffset + pageMargin);
-                if (viewPager5.getOrientation() ==
-                        ViewPager2.ORIENTATION_HORIZONTAL) {
-                    if (ViewCompat.getLayoutDirection(viewPager1) ==
-                            ViewCompat.LAYOUT_DIRECTION_RTL) {
-                        page.setTranslationX(-myOffset);
-                    } else {
-                        page.setTranslationX(myOffset);
-                    }
-                } else {
-                    page.setTranslationY(myOffset);
-                }
-            }
-        });
-    }
-
-
-    private void ViewPagerFunc4() {
-
-        pagerAdapter4 = new FragmentAdapter(this, numberPage);
-        viewPager4.setAdapter(pagerAdapter4);
-
-
-        indicator4 = findViewById(R.id.indicator4);
-
-
-
-        indicator4.setViewPager(viewPager4);
-        indicator4.createIndicators(numberPage, 0);
-
-
-        viewPager4.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
-
-
-
-        viewPager4.setCurrentItem(100);
-        viewPager4.setOffscreenPageLimit(3);
-
-
-        viewPager4.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int
-                    positionOffsetPixels) {
-
-                super.onPageScrolled(position, positionOffset, positionOffsetPixels);
-                if (positionOffsetPixels == 0) {
-                    viewPager4.setCurrentItem(position);
-                }
-            }
-
-
-            @Override
-            public void onPageSelected(int position) {
-                super.onPageSelected(position);
-                indicator4.animatePageSelected(position % numberPage);
-            }
-        });
-
-
-
-        viewPager4.setPageTransformer(new ViewPager2.PageTransformer() {
-            @Override
-            public void transformPage(@NonNull View page, float position) {
-                float myOffset = position * -(2 * pageOffset + pageMargin);
-                if (viewPager4.getOrientation() ==
-                        ViewPager2.ORIENTATION_HORIZONTAL) {
-                    if (ViewCompat.getLayoutDirection(viewPager1) ==
-                            ViewCompat.LAYOUT_DIRECTION_RTL) {
-                        page.setTranslationX(-myOffset);
-                    } else {
-                        page.setTranslationX(myOffset);
-                    }
-                } else {
-                    page.setTranslationY(myOffset);
-                }
-            }
-        });
-
-    }
-
-
-    private void ViewPagerFunc3() {
-
-        pagerAdapter3 = new FragmentAdapter(this, numberPage);
-        viewPager3.setAdapter(pagerAdapter3);
-
-
-        indicator3 = findViewById(R.id.indicator3);
-
-
-
-        indicator3.setViewPager(viewPager3);
-        indicator3.createIndicators(numberPage, 0);
-
-
-
-        viewPager3.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
-
-
-
-
-        viewPager3.setCurrentItem(100);
-        viewPager3.setOffscreenPageLimit(3);
-
-
-
-        viewPager3.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int
-                    positionOffsetPixels) {
-
-                super.onPageScrolled(position, positionOffset, positionOffsetPixels);
-                if (positionOffsetPixels == 0) {
-                    viewPager3.setCurrentItem(position);
-                }
-            }
-
-
-            @Override
-            public void onPageSelected(int position) {
-                super.onPageSelected(position);
-                indicator3.animatePageSelected(position % numberPage);
-            }
-        });
-
-
-
-        viewPager3.setPageTransformer(new ViewPager2.PageTransformer() {
-            @Override
-            public void transformPage(@NonNull View page, float position) {
-                float myOffset = position * -(2 * pageOffset + pageMargin);
-                if (viewPager3.getOrientation() ==
-                        ViewPager2.ORIENTATION_HORIZONTAL) {
-                    if (ViewCompat.getLayoutDirection(viewPager1) ==
-                            ViewCompat.LAYOUT_DIRECTION_RTL) {
-                        page.setTranslationX(-myOffset);
-                    } else {
-                        page.setTranslationX(myOffset);
-                    }
-                } else {
-                    page.setTranslationY(myOffset);
-                }
-            }
-        });
-
-
-    }
+//    private void ViewPagerFunc4() {
+//
+//        int numberPage = 5;
+//
+//        pagerAdapter4 = new FragmentAdapter(this, numberPage,4);
+//        viewPager4.setAdapter(pagerAdapter4);
+//
+//
+//        indicator4 = findViewById(R.id.indicator4);
+//
+//
+//
+//        indicator4.setViewPager(viewPager4);
+//        indicator4.createIndicators(numberPage, 0);
+//
+//
+//        viewPager4.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
+//
+//
+//
+//        viewPager4.setCurrentItem(100);
+//        viewPager4.setOffscreenPageLimit(3);
+//
+//
+//        viewPager4.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+//            @Override
+//            public void onPageScrolled(int position, float positionOffset, int
+//                    positionOffsetPixels) {
+//
+//                super.onPageScrolled(position, positionOffset, positionOffsetPixels);
+//                if (positionOffsetPixels == 0) {
+//                    viewPager4.setCurrentItem(position);
+//                }
+//            }
+//
+//
+//            @Override
+//            public void onPageSelected(int position) {
+//                super.onPageSelected(position);
+//                indicator4.animatePageSelected(position % numberPage);
+//            }
+//        });
+//
+//
+//
+//        viewPager4.setPageTransformer(new ViewPager2.PageTransformer() {
+//            @Override
+//            public void transformPage(@NonNull View page, float position) {
+//                float myOffset = position * -(2 * pageOffset + pageMargin);
+//                if (viewPager4.getOrientation() ==
+//                        ViewPager2.ORIENTATION_HORIZONTAL) {
+//                    if (ViewCompat.getLayoutDirection(viewPager1) ==
+//                            ViewCompat.LAYOUT_DIRECTION_RTL) {
+//                        page.setTranslationX(-myOffset);
+//                    } else {
+//                        page.setTranslationX(myOffset);
+//                    }
+//                } else {
+//                    page.setTranslationY(myOffset);
+//                }
+//            }
+//        });
+//
+//    }
+
+
+//    private void ViewPagerFunc3() {
+//
+//        int numberPage = 4;
+//        pagerAdapter3 = new FragmentAdapter(this, numberPage, 3);
+//        viewPager3.setAdapter(pagerAdapter3);
+//
+//
+//        indicator3 = findViewById(R.id.indicator3);
+//
+//
+//
+//        indicator3.setViewPager(viewPager3);
+//        indicator3.createIndicators(numberPage, 0);
+//
+//
+//
+//        viewPager3.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
+//
+//
+//
+//
+//        viewPager3.setCurrentItem(100);
+//        viewPager3.setOffscreenPageLimit(3);
+//
+//
+//
+//        viewPager3.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+//            @Override
+//            public void onPageScrolled(int position, float positionOffset, int
+//                    positionOffsetPixels) {
+//
+//                super.onPageScrolled(position, positionOffset, positionOffsetPixels);
+//                if (positionOffsetPixels == 0) {
+//                    viewPager3.setCurrentItem(position);
+//                }
+//            }
+//
+//
+//            @Override
+//            public void onPageSelected(int position) {
+//                super.onPageSelected(position);
+//                indicator3.animatePageSelected(position % numberPage);
+//            }
+//        });
+//
+//
+//
+//        viewPager3.setPageTransformer(new ViewPager2.PageTransformer() {
+//            @Override
+//            public void transformPage(@NonNull View page, float position) {
+//                float myOffset = position * -(2 * pageOffset + pageMargin);
+//                if (viewPager3.getOrientation() ==
+//                        ViewPager2.ORIENTATION_HORIZONTAL) {
+//                    if (ViewCompat.getLayoutDirection(viewPager1) ==
+//                            ViewCompat.LAYOUT_DIRECTION_RTL) {
+//                        page.setTranslationX(-myOffset);
+//                    } else {
+//                        page.setTranslationX(myOffset);
+//                    }
+//                } else {
+//                    page.setTranslationY(myOffset);
+//                }
+//            }
+//        });
+//
+//
+//    }
 
 
     private void ViewPagerFunc2() {
+        int numberPage = 5;
 
-        pagerAdapter2 = new FragmentAdapter(this, numberPage);
+        pagerAdapter2 = new FragmentAdapter2(this, numberPage, 2);
         viewPager2.setAdapter(pagerAdapter2);
 
 
@@ -362,7 +303,8 @@ public class LoginSuccessActivity extends AppCompatActivity {
         //1. 프래그먼트 어댑터를 만들고 보여줄 개수를 설정한다
         //2. 프래그먼트 어댑터를 viewPager2 에 연결시켜준다
         //프래그먼트를 어디서 보여줄건지, 개수는 몇개인지
-        pagerAdapter = new FragmentAdapter(this, numberPage);
+        int numberPage = 4;
+        pagerAdapter = new FragmentAdapter(this, numberPage, 1);
         viewPager1.setAdapter(pagerAdapter);
 
         //Indicator
@@ -446,7 +388,6 @@ public class LoginSuccessActivity extends AppCompatActivity {
         viewPager2 = findViewById(R.id.viewPager2);
         viewPager3 = findViewById(R.id.viewPager3);
         viewPager4 = findViewById(R.id.viewPager4);
-        viewPager5 = findViewById(R.id.viewPager5);
         viewFlipper = findViewById(R.id.viewFlipper);
     }   // end of findViewByIdFunc
 }

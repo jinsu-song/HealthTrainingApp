@@ -14,17 +14,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class FragmentSecond extends Fragment {
+public class FragmentSeventh extends Fragment {
     private int fragNumber;
-    private ImageView iv2;
-    private Button btnPlay2;
+    private ImageView iv7;
+    private Button btnPlay7;
 
-    public static FragmentSecond newInstance(int fragNumber){
-        FragmentSecond  fragmentSecond = new FragmentSecond ();
+    public static FragmentSeventh newInstance(int fragNumber){
+        FragmentSeventh  fragmentSeventh = new FragmentSeventh ();
         Bundle bundle=new Bundle();
         bundle.putInt("fragNumber", fragNumber);
-        fragmentSecond.setArguments(bundle);
-        return fragmentSecond;
+        fragmentSeventh.setArguments(bundle);
+        return fragmentSeventh;
     }
 
     @Override
@@ -36,7 +36,7 @@ public class FragmentSecond extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = (ViewGroup) inflater.inflate(R.layout.fragment02, container, false);
+        View view = (ViewGroup) inflater.inflate(R.layout.fragment07, container, false);
 
         return view;
     }
@@ -45,23 +45,22 @@ public class FragmentSecond extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstancdState){
         super.onViewCreated(view,savedInstancdState);
-        btnPlay2 = (Button) view.findViewById(R.id.btnPlay2);
+        btnPlay7 = (Button) view.findViewById(R.id.btnPlay7);
 
-        iv2 = view.findViewById(R.id.iv2);
-
-
-        iv2.setImageResource(R.drawable.decline);
+        iv7 = view.findViewById(R.id.iv7);
 
 
-          btnPlay2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Uri uri = Uri.parse("https://www.youtube.com/watch?v=AeDw1tlXczo");
-                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                    startActivity(intent);
-                }
-            });
+        iv7.setImageResource(R.drawable.bean);
 
+
+        btnPlay7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri uri = Uri.parse("https://steptohealth.co.kr/5-legumes-to-help-you-lose-fat/");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
 
     }
 

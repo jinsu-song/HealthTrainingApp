@@ -7,24 +7,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class FragmentSecond extends Fragment {
+public class FragmentNinth extends Fragment {
     private int fragNumber;
-    private ImageView iv2;
-    private Button btnPlay2;
+    private ImageView iv9;
+    private Button btnPlay9;
 
-    public static FragmentSecond newInstance(int fragNumber){
-        FragmentSecond  fragmentSecond = new FragmentSecond ();
+    public static FragmentNinth newInstance(int fragNumber){
+        FragmentNinth fragmentNinth = new FragmentNinth();
         Bundle bundle=new Bundle();
         bundle.putInt("fragNumber", fragNumber);
-        fragmentSecond.setArguments(bundle);
-        return fragmentSecond;
+        fragmentNinth.setArguments(bundle);
+        return fragmentNinth;
     }
 
     @Override
@@ -36,7 +36,7 @@ public class FragmentSecond extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = (ViewGroup) inflater.inflate(R.layout.fragment02, container, false);
+        View view = (ViewGroup) inflater.inflate(R.layout.fragment09, container, false);
 
         return view;
     }
@@ -45,23 +45,22 @@ public class FragmentSecond extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstancdState){
         super.onViewCreated(view,savedInstancdState);
-        btnPlay2 = (Button) view.findViewById(R.id.btnPlay2);
+        btnPlay9 = (Button) view.findViewById(R.id.btnPlay9);
 
-        iv2 = view.findViewById(R.id.iv2);
-
-
-        iv2.setImageResource(R.drawable.decline);
+        iv9 = view.findViewById(R.id.iv9);
 
 
-          btnPlay2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Uri uri = Uri.parse("https://www.youtube.com/watch?v=AeDw1tlXczo");
-                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                    startActivity(intent);
-                }
-            });
+        iv9.setImageResource(R.drawable.salad);
 
+
+        btnPlay9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri uri = Uri.parse("https://healthtalkmentaltalk.tistory.com/198");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
 
     }
 

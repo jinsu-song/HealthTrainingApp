@@ -49,6 +49,7 @@ public class FragmentFirst extends Fragment {
 
         iv1 = view.findViewById(R.id.iv1);
 
+
         iv1.setImageResource(R.drawable.decline);
 
         btnPlay1.setOnClickListener(new View.OnClickListener() {

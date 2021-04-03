@@ -20,11 +20,11 @@ public class FragmentThird extends Fragment {
     private Button btnPlay3;
 
     public static FragmentThird newInstance(int fragNumber){
-        FragmentThird fragment = new FragmentThird();
+        FragmentThird  fragmentSThird = new FragmentThird ();
         Bundle bundle=new Bundle();
         bundle.putInt("fragNumber", fragNumber);
-        fragment.setArguments(bundle);
-        return fragment;
+        fragmentSThird.setArguments(bundle);
+        return fragmentSThird;
     }
 
     @Override
@@ -36,12 +36,12 @@ public class FragmentThird extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = (ViewGroup) inflater.inflate(
-                R.layout.fragment03, container, false);
+        View view = (ViewGroup) inflater.inflate(R.layout.fragment03, container, false);
 
         return view;
     }
 
+    // 이안에서 객체를 찾고 하고 싶은 event 처리를 다 하면 됨
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstancdState){
         super.onViewCreated(view,savedInstancdState);
@@ -49,16 +49,20 @@ public class FragmentThird extends Fragment {
 
         iv3 = view.findViewById(R.id.iv3);
 
-        iv3.setImageResource(R.drawable.sliding);
+        iv3.setImageResource(R.drawable.decline);
 
-        btnPlay3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Uri uri = Uri.parse("https://www.youtube.com/watch?v=ZBw8usDsHIY");
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
-            }
-        });
+
+           btnPlay3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Uri uri = Uri.parse("https://www.youtube.com/watch?v=AeDw1tlXczo");
+                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    startActivity(intent);
+                }
+            });
+
+
+
     }
 
     @Override

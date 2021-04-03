@@ -14,17 +14,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class FragmentSecond extends Fragment {
+public class FragmentFifth extends Fragment {
     private int fragNumber;
-    private ImageView iv2;
-    private Button btnPlay2;
+    private ImageView iv5;
+    private Button btnPlay5;
 
-    public static FragmentSecond newInstance(int fragNumber){
-        FragmentSecond  fragmentSecond = new FragmentSecond ();
+    public static FragmentFifth newInstance(int fragNumber){
+        FragmentFifth  fragmentFifth = new FragmentFifth ();
         Bundle bundle=new Bundle();
         bundle.putInt("fragNumber", fragNumber);
-        fragmentSecond.setArguments(bundle);
-        return fragmentSecond;
+        fragmentFifth.setArguments(bundle);
+        return fragmentFifth;
     }
 
     @Override
@@ -36,7 +36,7 @@ public class FragmentSecond extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = (ViewGroup) inflater.inflate(R.layout.fragment02, container, false);
+        View view = (ViewGroup) inflater.inflate(R.layout.fragment05, container, false);
 
         return view;
     }
@@ -45,23 +45,22 @@ public class FragmentSecond extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstancdState){
         super.onViewCreated(view,savedInstancdState);
-        btnPlay2 = (Button) view.findViewById(R.id.btnPlay2);
+        btnPlay5 = (Button) view.findViewById(R.id.btnPlay5);
 
-        iv2 = view.findViewById(R.id.iv2);
-
-
-        iv2.setImageResource(R.drawable.decline);
+        iv5 = view.findViewById(R.id.iv5);
 
 
-          btnPlay2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Uri uri = Uri.parse("https://www.youtube.com/watch?v=AeDw1tlXczo");
-                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                    startActivity(intent);
-                }
-            });
+        iv5.setImageResource(R.drawable.oat);
 
+
+        btnPlay5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri uri = Uri.parse("https://steptohealth.co.kr/8-reasons-why-you-need-to-eat-more-oat-meal/");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
 
     }
 

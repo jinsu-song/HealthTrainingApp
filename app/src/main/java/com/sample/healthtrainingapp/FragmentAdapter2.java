@@ -7,12 +7,12 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-public class FragmentAdapter  extends FragmentStateAdapter {
+public class FragmentAdapter2 extends FragmentStateAdapter {
     //프래그먼트를 보여줄 개수 선정 50개 -> 4개
     private int count;
     private int fragNumber;
 
-    public FragmentAdapter(@NonNull FragmentActivity fragmentActivity, int count, int fragNumber) {
+    public FragmentAdapter2(@NonNull FragmentActivity fragmentActivity, int count, int fragNumber) {
         super(fragmentActivity);
         this.count = count;
     }
@@ -23,10 +23,11 @@ public class FragmentAdapter  extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         int index = position % count;    // 4 % 4 (0 ~ 3)
         switch (index){
-            case 0:  return  FragmentFirst.newInstance(index+1);
-            case 1:  return  FragmentSecond.newInstance(index+1);
-            case 2:  return  FragmentThird.newInstance(index+1);
-            case 3:  return  FragmentFourth.newInstance(index+1);
+            case 0:  return  FragmentFifth.newInstance(index+1);
+            case 1:  return  FragmentSixth.newInstance(index+1);
+            case 2:  return  FragmentSeventh.newInstance(index+1);
+            case 3:  return  FragmentEight.newInstance(index+1);
+            case 4:  return  FragmentNinth.newInstance(index+1);
             default: Log.e("FragmentAdapter:", "FragmentAdapter 에러발생");
         }
 
@@ -38,3 +39,4 @@ public class FragmentAdapter  extends FragmentStateAdapter {
         return 200;
     }
 }
+

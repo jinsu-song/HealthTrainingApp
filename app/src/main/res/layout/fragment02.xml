@@ -13,8 +13,8 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_marginTop="6dp"
             android:id="@+id/iv2"
+            android:layout_marginTop="6dp"
             android:layout_width="300dp"
             android:layout_height="170dp"/>
 
