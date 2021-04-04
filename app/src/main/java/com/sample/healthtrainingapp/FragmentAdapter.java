@@ -8,7 +8,6 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 public class FragmentAdapter  extends FragmentStateAdapter {
-    //프래그먼트를 보여줄 개수 선정 50개 -> 4개
     private int count;
     private int fragNumber;
 

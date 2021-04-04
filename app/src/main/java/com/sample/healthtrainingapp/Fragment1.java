@@ -16,7 +16,7 @@ import androidx.fragment.app.Fragment;
 public class Fragment1 extends Fragment {
     private int fragNumber;
     private ImageView iv1;
-    private Button btnPlay1;
+    private Button btn1;
 
     public static Fragment1 newInstance(int fragNumber){
         Fragment1 fragmentFirst = new Fragment1();
@@ -44,14 +44,14 @@ public class Fragment1 extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstancdState){
         super.onViewCreated(view,savedInstancdState);
-        btnPlay1 = (Button) view.findViewById(R.id.btnPlay1);
+        btn1 = (Button) view.findViewById(R.id.btn1);
 
         iv1 = view.findViewById(R.id.iv1);
 
 
         iv1.setImageResource(R.drawable.decline);
 
-        btnPlay1.setOnClickListener(new View.OnClickListener() {
+        btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Uri uri = Uri.parse("https://www.youtube.com/watch?v=AeDw1tlXczo");

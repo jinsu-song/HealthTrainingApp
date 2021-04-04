@@ -16,7 +16,7 @@ import androidx.fragment.app.Fragment;
 public class Fragment6 extends Fragment {
     private int fragNumber;
     private ImageView iv6;
-    private Button btnPlay6;
+    private Button btn6;
 
     public static Fragment6 newInstance(int fragNumber){
         Fragment6 fragment6 = new Fragment6();
@@ -40,11 +40,11 @@ public class Fragment6 extends Fragment {
         return view;
     }
 
-    // 이안에서 객체를 찾고 하고 싶은 event 처리를 다 하면 됨
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstancdState){
         super.onViewCreated(view,savedInstancdState);
-        btnPlay6 = (Button) view.findViewById(R.id.btnPlay6);
+        btn6 = (Button) view.findViewById(R.id.btn6);
 
         iv6 = view.findViewById(R.id.iv6);
 
@@ -52,7 +52,7 @@ public class Fragment6 extends Fragment {
         iv6.setImageResource(R.drawable.cheese);
 
 
-        btnPlay6.setOnClickListener(new View.OnClickListener() {
+        btn6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Uri uri = Uri.parse("https://steptohealth.co.kr/types-of-cheese-and-their-nutritional-value/");

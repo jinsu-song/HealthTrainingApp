@@ -16,7 +16,7 @@ import androidx.fragment.app.Fragment;
 public class Fragment2 extends Fragment {
     private int fragNumber;
     private ImageView iv2;
-    private Button btnPlay2;
+    private Button btn2;
 
     public static Fragment2 newInstance(int fragNumber){
         Fragment2 fragmentSecond = new Fragment2();
@@ -40,11 +40,11 @@ public class Fragment2 extends Fragment {
         return view;
     }
 
-    // 이안에서 객체를 찾고 하고 싶은 event 처리를 다 하면 됨
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstancdState){
         super.onViewCreated(view,savedInstancdState);
-        btnPlay2 = (Button) view.findViewById(R.id.btnPlay2);
+        btn2 = (Button) view.findViewById(R.id.btn2);
 
         iv2 = view.findViewById(R.id.iv2);
 
@@ -52,7 +52,7 @@ public class Fragment2 extends Fragment {
         iv2.setImageResource(R.drawable.shoulder);
 
 
-          btnPlay2.setOnClickListener(new View.OnClickListener() {
+          btn2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Uri uri = Uri.parse("https://www.youtube.com/watch?v=bnHGL2Qp8xs&list=PLTI10dby-phsSt78RhH0xKrFilfnjt5h9&index=34");

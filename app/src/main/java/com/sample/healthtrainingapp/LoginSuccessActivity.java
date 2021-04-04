@@ -68,18 +68,11 @@ public class LoginSuccessActivity extends AppCompatActivity {
         ViewPagerFunc3();
 
 
-
         pageMargin = getResources().getDimensionPixelOffset(R.dimen.pageMargin);
         pageOffset = getResources().getDimensionPixelOffset(R.dimen.offset);
 
     }   // end of onCreate
 
-    private void viewFlipperFunc2() {
-        //2초씩 속도 제한
-        viewFlipper2.setFlipInterval(2000);
-        //자동으로 화면이 바뀌게 함
-        viewFlipper2.setAutoStart(true);
-    }
 
     private void viewFlipperFunc() {
         //2초씩 속도 제한
@@ -88,6 +81,10 @@ public class LoginSuccessActivity extends AppCompatActivity {
         viewFlipper.setAutoStart(true);
     }
 
+    private void viewFlipperFunc2() {
+        viewFlipper2.setFlipInterval(2000);
+        viewFlipper2.setAutoStart(true);
+    }
 
     private void eventHandlerFunc() {
         btnPT_Reservation.setOnClickListener(v->{
@@ -99,38 +96,41 @@ public class LoginSuccessActivity extends AppCompatActivity {
 
 
 
+    private void ViewPagerFunc1() {
 
+        //Adapter
+        //1. 프래그먼트 어댑터를 만들고 보여줄 개수를 설정한다
+        //2. 프래그먼트 어댑터를 viewPager2 에 연결시켜준다
+        //프래그먼트를 어디서 보여줄건지, 개수는 몇개인지
+        int numberPage = 4;
+        pagerAdapter = new FragmentAdapter(this, numberPage, 1);
+        viewPager1.setAdapter(pagerAdapter);
 
+        //Indicator
+        indicator1 = findViewById(R.id.indicator1);
 
-    private void ViewPagerFunc3() {
+        //2. circleIndicator 에 viewpager2를 연결해주면 자동으로 개수를 체크해서 실행해준다
+        //전체 개수에서 현재 보여줄 위치를 지정한다
+        indicator1.setViewPager(viewPager1);
+        indicator1.createIndicators(numberPage, 0);
 
-        int numberPage = 5;
-        pagerAdapter3 = new FragmentAdapter3(this, numberPage, 3);
-        viewPager3.setAdapter(pagerAdapter3);
+        //3. viewPager2 에 방향 설정 좌우, 상하
+        viewPager1.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
 
+        //ViewPager2 Item을 200개 만들었으니 현재 위치를 100으로setCurrentItem(100) 하여 좌우로 슬라이딩 가능하도록 함
+        //4.viewPager2 에서 슬라이딩 이 몇개까지 가능한지
+        viewPager1.setCurrentItem(100);
+        viewPager1.setOffscreenPageLimit(3);
 
-        indicator3 = findViewById(R.id.indicator3);
-
-
-        indicator3.setViewPager(viewPager3);
-        indicator3.createIndicators(numberPage, 0);
-
-
-        viewPager3.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
-
-
-        viewPager3.setCurrentItem(100);
-        viewPager3.setOffscreenPageLimit(3);
-
-
-        viewPager3.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+        //5. viewPager2 event처리
+        viewPager1.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int
                     positionOffsetPixels) {
 
                 super.onPageScrolled(position, positionOffset, positionOffsetPixels);
                 if (positionOffsetPixels == 0) {
-                    viewPager3.setCurrentItem(position);
+                    viewPager1.setCurrentItem(position);
                 }
             }
 
@@ -138,17 +138,17 @@ public class LoginSuccessActivity extends AppCompatActivity {
             @Override
             public void onPageSelected(int position) {
                 super.onPageSelected(position);
-                indicator3.animatePageSelected(position % numberPage);
+                indicator1.animatePageSelected(position % numberPage);
             }
         });
 
 
-
-        viewPager3.setPageTransformer(new ViewPager2.PageTransformer() {
+        //setPageTransformer를 통해 프래그먼트간 애니메이션 맞춤설정도 가능
+        viewPager1.setPageTransformer(new ViewPager2.PageTransformer() {
             @Override
             public void transformPage(@NonNull View page, float position) {
                 float myOffset = position * -(2 * pageOffset + pageMargin);
-                if (viewPager3.getOrientation() ==
+                if (viewPager1.getOrientation() ==
                         ViewPager2.ORIENTATION_HORIZONTAL) {
                     if (ViewCompat.getLayoutDirection(viewPager1) ==
                             ViewCompat.LAYOUT_DIRECTION_RTL) {
@@ -161,10 +161,7 @@ public class LoginSuccessActivity extends AppCompatActivity {
                 }
             }
         });
-
-
     }
-
 
     private void ViewPagerFunc2() {
         int numberPage = 5;
@@ -233,42 +230,35 @@ public class LoginSuccessActivity extends AppCompatActivity {
 
     }
 
+    private void ViewPagerFunc3() {
 
-    private void ViewPagerFunc1() {
+        int numberPage = 5;
+        pagerAdapter3 = new FragmentAdapter3(this, numberPage, 3);
+        viewPager3.setAdapter(pagerAdapter3);
 
-        //Adapter
-        //1. 프래그먼트 어댑터를 만들고 보여줄 개수를 설정한다
-        //2. 프래그먼트 어댑터를 viewPager2 에 연결시켜준다
-        //프래그먼트를 어디서 보여줄건지, 개수는 몇개인지
-        int numberPage = 4;
-        pagerAdapter = new FragmentAdapter(this, numberPage, 1);
-        viewPager1.setAdapter(pagerAdapter);
 
-        //Indicator
-        indicator1 = findViewById(R.id.indicator1);
+        indicator3 = findViewById(R.id.indicator3);
 
-        //2. circleIndicator 에 viewpager2를 연결해주면 자동으로 개수를 체크해서 실행해준다
-        //전체 개수에서 현재 보여줄 위치를 지정한다
-        indicator1.setViewPager(viewPager1);
-        indicator1.createIndicators(numberPage, 0);
 
-        //3. viewPager2 에 방향 설정 좌우, 상하
-        viewPager1.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
+        indicator3.setViewPager(viewPager3);
+        indicator3.createIndicators(numberPage, 0);
 
-        //ViewPager2 Item을 200개 만들었으니 현재 위치를 100으로setCurrentItem(100) 하여 좌우로 슬라이딩 가능하도록 함
-        //4.viewPager2 에서 슬라이딩 이 몇개까지 가능한지
-        viewPager1.setCurrentItem(100);
-        viewPager1.setOffscreenPageLimit(3);
 
-        //5. viewPager2 event처리
-        viewPager1.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+        viewPager3.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
+
+
+        viewPager3.setCurrentItem(100);
+        viewPager3.setOffscreenPageLimit(3);
+
+
+        viewPager3.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int
                     positionOffsetPixels) {
 
                 super.onPageScrolled(position, positionOffset, positionOffsetPixels);
                 if (positionOffsetPixels == 0) {
-                    viewPager1.setCurrentItem(position);
+                    viewPager3.setCurrentItem(position);
                 }
             }
 
@@ -276,17 +266,17 @@ public class LoginSuccessActivity extends AppCompatActivity {
             @Override
             public void onPageSelected(int position) {
                 super.onPageSelected(position);
-                indicator1.animatePageSelected(position % numberPage);
+                indicator3.animatePageSelected(position % numberPage);
             }
         });
 
 
-        //setPageTransformer를 통해 프래그먼트간 애니메이션 맞춤설정도 가능
-        viewPager1.setPageTransformer(new ViewPager2.PageTransformer() {
+
+        viewPager3.setPageTransformer(new ViewPager2.PageTransformer() {
             @Override
             public void transformPage(@NonNull View page, float position) {
                 float myOffset = position * -(2 * pageOffset + pageMargin);
-                if (viewPager1.getOrientation() ==
+                if (viewPager3.getOrientation() ==
                         ViewPager2.ORIENTATION_HORIZONTAL) {
                     if (ViewCompat.getLayoutDirection(viewPager1) ==
                             ViewCompat.LAYOUT_DIRECTION_RTL) {
@@ -299,6 +289,8 @@ public class LoginSuccessActivity extends AppCompatActivity {
                 }
             }
         });
+
+
     }
 
 

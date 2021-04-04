@@ -16,7 +16,7 @@ import androidx.fragment.app.Fragment;
 public class Fragment8 extends Fragment {
     private int fragNumber;
     private ImageView iv8;
-    private Button btnPlay8;
+    private Button btn8;
 
     public static Fragment8 newInstance(int fragNumber){
         Fragment8 fragment8 = new Fragment8();
@@ -40,11 +40,11 @@ public class Fragment8 extends Fragment {
         return view;
     }
 
-    // 이안에서 객체를 찾고 하고 싶은 event 처리를 다 하면 됨
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstancdState){
         super.onViewCreated(view,savedInstancdState);
-        btnPlay8 = (Button) view.findViewById(R.id.btnPlay8);
+        btn8 = (Button) view.findViewById(R.id.btn8);
 
         iv8 = view.findViewById(R.id.iv8);
 
@@ -52,7 +52,7 @@ public class Fragment8 extends Fragment {
         iv8.setImageResource(R.drawable.grapefruit);
 
 
-        btnPlay8.setOnClickListener(new View.OnClickListener() {
+        btn8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Uri uri = Uri.parse("https://steptohealth.co.kr/diet-with-grapefruit-juice-after-meal/");

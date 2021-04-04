@@ -16,7 +16,7 @@ import androidx.fragment.app.Fragment;
 public class Fragment10 extends Fragment {
     private int fragNumber;
     private ImageView iv10;
-    private Button btnPlay10;
+    private Button btn10;
 
     public static Fragment10 newInstance(int fragNumber){
         Fragment10 fragment10 = new Fragment10();
@@ -40,18 +40,18 @@ public class Fragment10 extends Fragment {
         return view;
     }
 
-    // 이안에서 객체를 찾고 하고 싶은 event 처리를 다 하면 됨
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstancdState){
         super.onViewCreated(view,savedInstancdState);
-        btnPlay10 = (Button) view.findViewById(R.id.btnPlay10);
+        btn10 = (Button) view.findViewById(R.id.btn10);
 
         iv10 = view.findViewById(R.id.iv10);
 
 
         iv10.setImageResource(R.drawable.protein);
 
-        btnPlay10.setOnClickListener(new View.OnClickListener() {
+        btn10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Uri uri = Uri.parse("https://whitepen.co.kr/%EB%8B%A8%EB%B0%B1%EC%A7%88-%EB%B3%B4%EC%B6%A9%EC%A0%9C-%EC%B6%94%EC%B2%9C/");

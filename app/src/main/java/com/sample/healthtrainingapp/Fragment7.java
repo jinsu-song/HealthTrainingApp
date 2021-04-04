@@ -16,7 +16,7 @@ import androidx.fragment.app.Fragment;
 public class Fragment7 extends Fragment {
     private int fragNumber;
     private ImageView iv7;
-    private Button btnPlay7;
+    private Button btn7;
 
     public static Fragment7 newInstance(int fragNumber){
         Fragment7 fragment7 = new Fragment7();
@@ -40,11 +40,11 @@ public class Fragment7 extends Fragment {
         return view;
     }
 
-    // 이안에서 객체를 찾고 하고 싶은 event 처리를 다 하면 됨
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstancdState){
         super.onViewCreated(view,savedInstancdState);
-        btnPlay7 = (Button) view.findViewById(R.id.btnPlay7);
+        btn7 = (Button) view.findViewById(R.id.btn7);
 
         iv7 = view.findViewById(R.id.iv7);
 
@@ -52,7 +52,7 @@ public class Fragment7 extends Fragment {
         iv7.setImageResource(R.drawable.bean);
 
 
-        btnPlay7.setOnClickListener(new View.OnClickListener() {
+        btn7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Uri uri = Uri.parse("https://steptohealth.co.kr/5-legumes-to-help-you-lose-fat/");

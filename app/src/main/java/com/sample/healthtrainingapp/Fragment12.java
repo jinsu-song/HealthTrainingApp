@@ -16,7 +16,7 @@ import androidx.fragment.app.Fragment;
 public class Fragment12 extends Fragment {
     private int fragNumber;
     private ImageView iv12;
-    private Button btnPlay12;
+    private Button btn12;
 
     public static Fragment12 newInstance(int fragNumber){
         Fragment12 fragment12 = new Fragment12();
@@ -40,11 +40,11 @@ public class Fragment12 extends Fragment {
         return view;
     }
 
-    // 이안에서 객체를 찾고 하고 싶은 event 처리를 다 하면 됨
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstancdState){
         super.onViewCreated(view,savedInstancdState);
-        btnPlay12 = (Button) view.findViewById(R.id.btnPlay12);
+        btn12 = (Button) view.findViewById(R.id.btn12);
 
         iv12 = view.findViewById(R.id.iv12);
 
@@ -52,10 +52,10 @@ public class Fragment12 extends Fragment {
         iv12.setImageResource(R.drawable.muscle);
 
 
-        btnPlay12.setOnClickListener(new View.OnClickListener() {
+        btn12.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Uri uri = Uri.parse("https://www.coupang.com/vp/products/19977043?itemId=75678057&vendorItemId=3126494326&src=1139000&spec=10799999&addtag=400&ctag=19977043&lptag=AF3252626&itime=20210404235101&pageType=PRODUCT&pageValue=19977043&wPcid=61401859963812587496947&wRef=&wTime=20210404235101&redirect=landing&traceid=V0-606-f34f4e0d5783707c&placementid=&clickBeacon=&campaignid=&contentcategory=&imgsize=&pageid=&deviceid=&contenttype=&subid=WHITEPEN&impressionid=&campaigntype=&contentkeyword=&subparam=&isAddedCart=");
+                Uri uri = Uri.parse("https://url.kr/m65zvj");
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
             }

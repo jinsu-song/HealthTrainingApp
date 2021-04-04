@@ -20,7 +20,7 @@
             android:layout_height="170dp"/>
 
         <Button
-            android:id="@+id/btnPlay10"
+            android:id="@+id/btn10"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_gravity="left"
