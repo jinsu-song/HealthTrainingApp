@@ -58,6 +58,54 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="공지사항"
+                        android:textColor="#000000"
+                        android:textSize="20sp"/>
+
+                    <ViewFlipper
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/viewFlipper"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/frameSize">
+
+                        <LinearLayout
+                            android:id="@+id/linear1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="#FCE4EC"
+                            android:orientation="horizontal">
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/linear2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="#FFF9C4"
+                            android:orientation="horizontal">
+
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/linear3"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/frameSize"
+                            android:background="#E1F5FE"
+                            android:orientation="horizontal">
+
+
+
+                        </LinearLayout>
+
+
+                    </ViewFlipper>
+
 
 
 
@@ -198,53 +246,7 @@
                     </LinearLayout>
 
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="이벤트"
-                        android:textColor="#000000"
-                        android:textSize="20sp"/>
 
-                    <ViewFlipper
-                        android:layout_marginTop="10dp"
-                        android:id="@+id/viewFlipper"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/frameSize">
-
-                        <LinearLayout
-                            android:id="@+id/linear1"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="#E1BEE7"
-                            android:orientation="horizontal">
-
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/linear2"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="#EFE9B0"
-                            android:orientation="horizontal">
-
-
-                        </LinearLayout>
-
-
-                        <LinearLayout
-                            android:id="@+id/linear3"
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/frameSize"
-                            android:background="#C8E6C9"
-                            android:orientation="horizontal">
-
-
-
-                        </LinearLayout>
-
-
-                    </ViewFlipper>
 
                 </LinearLayout>
             </ScrollView>
