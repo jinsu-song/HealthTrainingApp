@@ -7,24 +7,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class FragmentNinth extends Fragment {
+public class Fragment10 extends Fragment {
     private int fragNumber;
-    private ImageView iv9;
-    private Button btnPlay9;
+    private ImageView iv10;
+    private Button btnPlay10;
 
-    public static FragmentNinth newInstance(int fragNumber){
-        FragmentNinth fragmentNinth = new FragmentNinth();
+    public static Fragment10 newInstance(int fragNumber){
+        Fragment10 fragment10 = new Fragment10();
         Bundle bundle=new Bundle();
         bundle.putInt("fragNumber", fragNumber);
-        fragmentNinth.setArguments(bundle);
-        return fragmentNinth;
+        fragment10.setArguments(bundle);
+        return fragment10;
     }
 
     @Override
@@ -36,7 +35,7 @@ public class FragmentNinth extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = (ViewGroup) inflater.inflate(R.layout.fragment09, container, false);
+        View view = (ViewGroup) inflater.inflate(R.layout.fragment10, container, false);
 
         return view;
     }
@@ -45,18 +44,17 @@ public class FragmentNinth extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstancdState){
         super.onViewCreated(view,savedInstancdState);
-        btnPlay9 = (Button) view.findViewById(R.id.btnPlay9);
+        btnPlay10 = (Button) view.findViewById(R.id.btnPlay10);
 
-        iv9 = view.findViewById(R.id.iv9);
-
-
-        iv9.setImageResource(R.drawable.salad);
+        iv10 = view.findViewById(R.id.iv10);
 
 
-        btnPlay9.setOnClickListener(new View.OnClickListener() {
+        iv10.setImageResource(R.drawable.protein);
+
+        btnPlay10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Uri uri = Uri.parse("https://healthtalkmentaltalk.tistory.com/198");
+                Uri uri = Uri.parse("https://whitepen.co.kr/%EB%8B%A8%EB%B0%B1%EC%A7%88-%EB%B3%B4%EC%B6%A9%EC%A0%9C-%EC%B6%94%EC%B2%9C/");
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
             }

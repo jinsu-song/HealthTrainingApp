@@ -8,23 +8,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class FragmentFirst extends Fragment {
+public class Fragment3 extends Fragment {
     private int fragNumber;
-    private ImageView iv1;
-    private Button btnPlay1;
+    private ImageView iv3;
+    private Button btnPlay3;
 
-    public static FragmentFirst newInstance(int fragNumber){
-        FragmentFirst fragmentFirst = new FragmentFirst();
+    public static Fragment3 newInstance(int fragNumber){
+        Fragment3 fragmentSThird = new Fragment3();
         Bundle bundle=new Bundle();
         bundle.putInt("fragNumber", fragNumber);
-        fragmentFirst.setArguments(bundle);
-        return fragmentFirst;
+        fragmentSThird.setArguments(bundle);
+        return fragmentSThird;
     }
 
     @Override
@@ -36,7 +35,7 @@ public class FragmentFirst extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = (ViewGroup) inflater.inflate(R.layout.fragment01, container, false);
+        View view = (ViewGroup) inflater.inflate(R.layout.fragment03, container, false);
 
         return view;
     }
@@ -45,21 +44,24 @@ public class FragmentFirst extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstancdState){
         super.onViewCreated(view,savedInstancdState);
-        btnPlay1 = (Button) view.findViewById(R.id.btnPlay1);
+        btnPlay3 = (Button) view.findViewById(R.id.btnPlay3);
 
-        iv1 = view.findViewById(R.id.iv1);
+        iv3 = view.findViewById(R.id.iv3);
+
+        iv3.setImageResource(R.drawable.sliding);
 
 
-        iv1.setImageResource(R.drawable.decline);
+           btnPlay3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Uri uri = Uri.parse("https://www.youtube.com/watch?v=ZBw8usDsHIY&list=PLTI10dby-phsSt78RhH0xKrFilfnjt5h9&index=4");
+                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    startActivity(intent);
+                }
+            });
 
-        btnPlay1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Uri uri = Uri.parse("https://www.youtube.com/watch?v=AeDw1tlXczo");
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
-            }
-        });
+
+
     }
 
     @Override
@@ -67,4 +69,3 @@ public class FragmentFirst extends Fragment {
         super.onStop();
     }
 }
-

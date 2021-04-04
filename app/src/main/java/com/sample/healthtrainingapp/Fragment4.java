@@ -8,23 +8,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class FragmentSecond extends Fragment {
+public class Fragment4 extends Fragment {
     private int fragNumber;
-    private ImageView iv2;
-    private Button btnPlay2;
+    private ImageView iv4;
+    private Button btnPlay4;
 
-    public static FragmentSecond newInstance(int fragNumber){
-        FragmentSecond  fragmentSecond = new FragmentSecond ();
+    public static Fragment4 newInstance(int fragNumber){
+        Fragment4 fragmentFourth = new Fragment4();
         Bundle bundle=new Bundle();
         bundle.putInt("fragNumber", fragNumber);
-        fragmentSecond.setArguments(bundle);
-        return fragmentSecond;
+        fragmentFourth.setArguments(bundle);
+        return fragmentFourth;
     }
 
     @Override
@@ -36,7 +35,7 @@ public class FragmentSecond extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = (ViewGroup) inflater.inflate(R.layout.fragment02, container, false);
+        View view = (ViewGroup) inflater.inflate(R.layout.fragment04, container, false);
 
         return view;
     }
@@ -45,23 +44,22 @@ public class FragmentSecond extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstancdState){
         super.onViewCreated(view,savedInstancdState);
-        btnPlay2 = (Button) view.findViewById(R.id.btnPlay2);
+        btnPlay4 = (Button) view.findViewById(R.id.btnPlay4);
 
-        iv2 = view.findViewById(R.id.iv2);
-
-
-        iv2.setImageResource(R.drawable.decline);
+        iv4 = view.findViewById(R.id.iv4);
 
 
-          btnPlay2.setOnClickListener(new View.OnClickListener() {
+        iv4.setImageResource(R.drawable.sit);
+
+
+          btnPlay4.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Uri uri = Uri.parse("https://www.youtube.com/watch?v=AeDw1tlXczo");
+                    Uri uri = Uri.parse("https://www.youtube.com/watch?v=sTgMAZnlw44&list=PLTI10dby-phsSt78RhH0xKrFilfnjt5h9&index=11");
                     Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                     startActivity(intent);
                 }
             });
-
 
     }
 

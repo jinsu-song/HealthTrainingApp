@@ -8,23 +8,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class FragmentFourth extends Fragment {
+public class Fragment5 extends Fragment {
     private int fragNumber;
-    private ImageView iv4;
-    private Button btnPlay4;
+    private ImageView iv5;
+    private Button btnPlay5;
 
-    public static FragmentFourth newInstance(int fragNumber){
-        FragmentFourth  fragmentFourth = new FragmentFourth ();
+    public static Fragment5 newInstance(int fragNumber){
+        Fragment5 fragment5 = new Fragment5();
         Bundle bundle=new Bundle();
         bundle.putInt("fragNumber", fragNumber);
-        fragmentFourth.setArguments(bundle);
-        return fragmentFourth;
+        fragment5.setArguments(bundle);
+        return fragment5;
     }
 
     @Override
@@ -36,7 +35,7 @@ public class FragmentFourth extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = (ViewGroup) inflater.inflate(R.layout.fragment04, container, false);
+        View view = (ViewGroup) inflater.inflate(R.layout.fragment05, container, false);
 
         return view;
     }
@@ -45,22 +44,22 @@ public class FragmentFourth extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstancdState){
         super.onViewCreated(view,savedInstancdState);
-        btnPlay4 = (Button) view.findViewById(R.id.btnPlay4);
+        btnPlay5 = (Button) view.findViewById(R.id.btnPlay5);
 
-        iv4 = view.findViewById(R.id.iv4);
-
-
-        iv4.setImageResource(R.drawable.decline);
+        iv5 = view.findViewById(R.id.iv5);
 
 
-          btnPlay4.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Uri uri = Uri.parse("https://www.youtube.com/watch?v=AeDw1tlXczo");
-                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                    startActivity(intent);
-                }
-            });
+        iv5.setImageResource(R.drawable.oat);
+
+
+        btnPlay5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri uri = Uri.parse("https://steptohealth.co.kr/8-reasons-why-you-need-to-eat-more-oat-meal/");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
 
     }
 

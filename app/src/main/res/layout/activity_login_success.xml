@@ -107,12 +107,10 @@
                     </ViewFlipper>
 
 
-
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="추천 운동"
+                        android:text="부위별 운동"
                         android:layout_marginTop="20dp"
                         android:textColor="#000000"
                         android:textSize="20sp"/>
@@ -120,6 +118,7 @@
                     <LinearLayout
                         android:id="@+id/linear5"
                         android:layout_width="match_parent"
+                        android:layout_marginTop="10dp"
                         android:layout_height="@dimen/frameSize">
 
 
@@ -148,7 +147,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="식단 추천"
+                        android:text="다이어트 식품"
                         android:textColor="#000000"
                         android:layout_marginTop="40dp"
                         android:textSize="20sp"/>
@@ -183,12 +182,10 @@
 
 
 
-
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="단백질 추천"
+                        android:text="프로틴 추천 / 최저가 사러가기"
                         android:layout_marginTop="40dp"
                         android:textColor="#000000"
                         android:textSize="20sp"/>
@@ -219,33 +216,64 @@
 
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:id="@+id/linear7"
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Let's work out and stay healthy"
+                        android:layout_marginTop="40dp"
+                        android:textColor="#000000"
+                        android:textSize="20sp"/>
+
+                    <ViewFlipper
                         android:layout_marginTop="10dp"
-                        android:layout_height="200dp">
+                        android:id="@+id/viewFlipper2"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/frameSize">
 
-                        <FrameLayout
+                        <LinearLayout
+                            android:id="@+id/linear7"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/frameSize">
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
 
-                            <androidx.viewpager2.widget.ViewPager2
-                                android:id="@+id/viewPager4"
+                            <ImageView
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/frameSize"/>
+                                android:layout_height="match_parent"
+                                android:src="@drawable/pic1"/>
 
-                            <me.relex.circleindicator.CircleIndicator3
-                                android:id="@+id/indicator4"
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/linear8"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <ImageView
                                 android:layout_width="match_parent"
-                                android:layout_height="48dp"
-                                android:layout_gravity="bottom"/>
-
-                        </FrameLayout>
+                                android:layout_height="match_parent"
+                                android:src="@drawable/pic2"/>
 
 
-                    </LinearLayout>
+                        </LinearLayout>
 
 
+                        <LinearLayout
+                            android:id="@+id/linear9"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/frameSize"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/pic3"/>
+
+                        </LinearLayout>
+
+
+                    </ViewFlipper>
 
 
                 </LinearLayout>
