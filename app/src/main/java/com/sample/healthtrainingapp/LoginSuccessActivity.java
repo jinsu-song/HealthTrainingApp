@@ -22,7 +22,7 @@ import me.relex.circleindicator.CircleIndicator3;
  */
 public class LoginSuccessActivity extends AppCompatActivity {
     private ImageButton ibOpenDrawable, ibCloseDrawable;
-    private Button btnPT_Reservation, btnChargeInfo, btnManagerPage,btnStopWatch;
+    private Button btnPT_Reservation, btnChargeInfo;
     private ImageButton btnNotice;
     private DrawerLayout drawerLayout;
     private LinearLayout linearLayout, noticeLayout;
@@ -160,7 +160,7 @@ public class LoginSuccessActivity extends AppCompatActivity {
                 }
             }
         });
-    }
+    }   // end of ViewPagerFunc1
 
     private void ViewPagerFunc2() {
         int numberPage = 5;
@@ -223,7 +223,7 @@ public class LoginSuccessActivity extends AppCompatActivity {
             }
         });
 
-    }
+    }   // end of ViewPagerFunc2
 
     private void ViewPagerFunc3() {
 
@@ -283,7 +283,7 @@ public class LoginSuccessActivity extends AppCompatActivity {
                 }
             }
         });
-    }
+    }   // end of ViewPagerFunc3
 
     private void openAndCloseDrawable() {
         ibOpenDrawable.setOnClickListener(v->{
@@ -303,7 +303,6 @@ public class LoginSuccessActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawerLayout);
         btnPT_Reservation = findViewById(R.id.btnPT_Reservation);
         btnChargeInfo = findViewById(R.id.btnChargeInfo);
-//        btnManagerPage = findViewById(R.id.btnManagerPage);
         viewPager1 = findViewById(R.id.viewPager1);
         viewPager2 = findViewById(R.id.viewPager2);
         viewPager3 = findViewById(R.id.viewPager3);
