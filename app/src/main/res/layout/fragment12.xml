@@ -9,7 +9,7 @@
         android:padding="10dp"
         android:layout_marginLeft="@dimen/pageMarginAndOffset"
         android:layout_marginRight="@dimen/pageMarginAndOffset"
-        android:background="#F1F8E9"
+        android:background="#B3E5FC"
         android:orientation="vertical">
 
         <LinearLayout
