@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -41,10 +42,19 @@ public class NoticeRecyclerViewAdapter extends RecyclerView.Adapter<NoticeRecycl
         }catch (Exception e){
             e.printStackTrace();
         }
+        String subStringContent = null;
+        if (noticeDataList.get(position).getContent().length() > 20){
+            subStringContent = noticeDataList.get(position).getContent().substring(0,20) + " ....";
+        }else{
+            subStringContent = noticeDataList.get(position).getContent();
+        }
         holder.tvTitle.setText(noticeDataList.get(position).getTitle());
-        holder.tvContent.setText(noticeDataList.get(position).getContent());
+        holder.tvContent.setText(subStringContent);
         holder.tvWriteDate.setText(noticeDataList.get(position).getWriteDate());
         holder.tvAuthor.setText(noticeDataList.get(position).getAuthor());
+        if (position % 2 == 0){
+            holder.notice_item_LinearLayout.setBackgroundColor(context.getResources().getColor(R.color.notice_item_backgroundcolor));
+        }
     }
 
     @Override
@@ -54,6 +64,7 @@ public class NoticeRecyclerViewAdapter extends RecyclerView.Adapter<NoticeRecycl
 
     public class CustomViewHolder extends RecyclerView.ViewHolder{
         private TextView tvTitle, tvWriteDate, tvContent, tvNo, tvAuthor;
+        private LinearLayout notice_item_LinearLayout;
 
         public CustomViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -62,7 +73,7 @@ public class NoticeRecyclerViewAdapter extends RecyclerView.Adapter<NoticeRecycl
             tvWriteDate = itemView.findViewById(R.id.tvWriteDate);
             tvContent = itemView.findViewById(R.id.tvContent);
             tvAuthor = itemView.findViewById(R.id.tvAuthor);
-
+            notice_item_LinearLayout = itemView.findViewById(R.id.notice_item_LinearLayout);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

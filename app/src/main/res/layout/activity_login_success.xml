@@ -231,9 +231,11 @@
 
 
                     <LinearLayout
+                        android:id="@+id/noticeLayout"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/frameSize"
                         android:background="#F0F4C3"
+                        android:orientation="vertical"
                         android:layout_marginTop="10dp">
                     </LinearLayout>
 

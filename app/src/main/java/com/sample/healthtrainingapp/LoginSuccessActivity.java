@@ -24,7 +24,7 @@ public class LoginSuccessActivity extends AppCompatActivity {
     private ImageButton ibOpenDrawable, ibCloseDrawable;
     private Button btnPT_Reservation, btnChargeInfo, btnManagerPage,btnStopWatch;
     private DrawerLayout drawerLayout;
-    private LinearLayout linearLayout;
+    private LinearLayout linearLayout, noticeLayout;
     private ViewPager2 viewPager1, viewPager2, viewPager3;
     private CircleIndicator3 indicator1, indicator2, indicator3;
     private FragmentStateAdapter pagerAdapter, pagerAdapter2, pagerAdapter3;
@@ -80,6 +80,11 @@ public class LoginSuccessActivity extends AppCompatActivity {
         btnPT_Reservation.setOnClickListener(v->{
             Intent intent = new Intent(LoginSuccessActivity.this, PT_ReservationActivity.class);
             intent.putExtra("id",id);
+            startActivity(intent);
+        });
+
+        noticeLayout.setOnClickListener(v->{
+            Intent intent = new Intent(LoginSuccessActivity.this,NoticeActivity.class);
             startActivity(intent);
         });
     }   // end of eventHandlerFunc
@@ -291,13 +296,14 @@ public class LoginSuccessActivity extends AppCompatActivity {
 
 
     private void findViewByIdFunc() {
+        noticeLayout = findViewById(R.id.noticeLayout);
         ibOpenDrawable = findViewById(R.id.ibOpenDrawable);
         ibCloseDrawable = findViewById(R.id.ibCloseDrawable);
         linearLayout = findViewById(R.id.linearLayout);
         drawerLayout = findViewById(R.id.drawerLayout);
         btnPT_Reservation = findViewById(R.id.btnPT_Reservation);
         btnChargeInfo = findViewById(R.id.btnChargeInfo);
-        btnManagerPage = findViewById(R.id.btnManagerPage);
+//        btnManagerPage = findViewById(R.id.btnManagerPage);
         viewPager1 = findViewById(R.id.viewPager1);
         viewPager2 = findViewById(R.id.viewPager2);
         viewPager3 = findViewById(R.id.viewPager3);

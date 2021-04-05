@@ -96,7 +96,7 @@ public class NoticeActivity extends AppCompatActivity {
                 @Override
                 public void onItemClick(View view, int position) {
                     setPosition(position);
-                    Intent intent = new Intent(NoticeActivity.this, NoticeActivity.class);
+                    Intent intent = new Intent(NoticeActivity.this, NoticeItemActivity.class);
                     intent.putExtra("noticeData",noticeDataList.get(position));
                     startActivity(intent);
                 }

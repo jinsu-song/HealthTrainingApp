@@ -11,4 +11,5 @@
     <color name="green">#C806C800</color>
     <color name="drawerColor">#8B00BCD4</color>
     <color name="CalendarItemColor">#2D0ED400</color>
+    <color name="notice_item_backgroundcolor">#5B00BCD4</color>
 </resources>
