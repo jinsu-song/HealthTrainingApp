@@ -268,12 +268,20 @@
 
 
                     <LinearLayout
-                        android:id="@+id/noticeLayout"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/frameSize"
-                        android:background="#F0F4C3"
+                        android:background="@color/white"
                         android:orientation="vertical"
+                        android:gravity="center"
                         android:layout_marginTop="10dp">
+
+                        <ImageButton
+                            android:id="@+id/btnNotice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/notice"
+                            android:layout_gravity="center"
+                            android:background="#0000"/>
                     </LinearLayout>
 
 

@@ -23,6 +23,7 @@ import me.relex.circleindicator.CircleIndicator3;
 public class LoginSuccessActivity extends AppCompatActivity {
     private ImageButton ibOpenDrawable, ibCloseDrawable;
     private Button btnPT_Reservation, btnChargeInfo, btnManagerPage,btnStopWatch;
+    private ImageButton btnNotice;
     private DrawerLayout drawerLayout;
     private LinearLayout linearLayout, noticeLayout;
     private ViewPager2 viewPager1, viewPager2, viewPager3;
@@ -81,7 +82,7 @@ public class LoginSuccessActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        noticeLayout.setOnClickListener(v->{
+        btnNotice.setOnClickListener(v->{
             Intent intent = new Intent(LoginSuccessActivity.this,NoticeActivity.class);
             startActivity(intent);
         });
@@ -290,7 +291,7 @@ public class LoginSuccessActivity extends AppCompatActivity {
 
 
     private void findViewByIdFunc() {
-        noticeLayout = findViewById(R.id.noticeLayout);
+        btnNotice = findViewById(R.id.btnNotice);
         ibOpenDrawable = findViewById(R.id.ibOpenDrawable);
         ibCloseDrawable = findViewById(R.id.ibCloseDrawable);
         linearLayout = findViewById(R.id.linearLayout);
