@@ -8,23 +8,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class FragmentFifth extends Fragment {
+public class Fragment2 extends Fragment {
     private int fragNumber;
-    private ImageView iv5;
-    private Button btnPlay5;
+    private ImageView iv2;
+    private Button btn2;
 
-    public static FragmentFifth newInstance(int fragNumber){
-        FragmentFifth  fragmentFifth = new FragmentFifth ();
+    public static Fragment2 newInstance(int fragNumber){
+        Fragment2 fragmentSecond = new Fragment2();
         Bundle bundle=new Bundle();
         bundle.putInt("fragNumber", fragNumber);
-        fragmentFifth.setArguments(bundle);
-        return fragmentFifth;
+        fragmentSecond.setArguments(bundle);
+        return fragmentSecond;
     }
 
     @Override
@@ -36,31 +35,32 @@ public class FragmentFifth extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = (ViewGroup) inflater.inflate(R.layout.fragment05, container, false);
+        View view = (ViewGroup) inflater.inflate(R.layout.fragment02, container, false);
 
         return view;
     }
 
-    // 이안에서 객체를 찾고 하고 싶은 event 처리를 다 하면 됨
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstancdState){
         super.onViewCreated(view,savedInstancdState);
-        btnPlay5 = (Button) view.findViewById(R.id.btnPlay5);
+        btn2 = (Button) view.findViewById(R.id.btn2);
 
-        iv5 = view.findViewById(R.id.iv5);
-
-
-        iv5.setImageResource(R.drawable.oat);
+        iv2 = view.findViewById(R.id.iv2);
 
 
-        btnPlay5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Uri uri = Uri.parse("https://steptohealth.co.kr/8-reasons-why-you-need-to-eat-more-oat-meal/");
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
-            }
-        });
+        iv2.setImageResource(R.drawable.shoulder);
+
+
+          btn2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Uri uri = Uri.parse("https://www.youtube.com/watch?v=bnHGL2Qp8xs&list=PLTI10dby-phsSt78RhH0xKrFilfnjt5h9&index=34");
+                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    startActivity(intent);
+                }
+            });
+
 
     }
 

@@ -7,24 +7,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class FragmentNinth extends Fragment {
+public class Fragment4 extends Fragment {
     private int fragNumber;
-    private ImageView iv9;
-    private Button btnPlay9;
+    private ImageView iv4;
+    private Button btn4;
 
-    public static FragmentNinth newInstance(int fragNumber){
-        FragmentNinth fragmentNinth = new FragmentNinth();
+    public static Fragment4 newInstance(int fragNumber){
+        Fragment4 fragmentFourth = new Fragment4();
         Bundle bundle=new Bundle();
         bundle.putInt("fragNumber", fragNumber);
-        fragmentNinth.setArguments(bundle);
-        return fragmentNinth;
+        fragmentFourth.setArguments(bundle);
+        return fragmentFourth;
     }
 
     @Override
@@ -36,31 +35,31 @@ public class FragmentNinth extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = (ViewGroup) inflater.inflate(R.layout.fragment09, container, false);
+        View view = (ViewGroup) inflater.inflate(R.layout.fragment04, container, false);
 
         return view;
     }
 
-    // 이안에서 객체를 찾고 하고 싶은 event 처리를 다 하면 됨
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstancdState){
         super.onViewCreated(view,savedInstancdState);
-        btnPlay9 = (Button) view.findViewById(R.id.btnPlay9);
+        btn4 = (Button) view.findViewById(R.id.btn4);
 
-        iv9 = view.findViewById(R.id.iv9);
-
-
-        iv9.setImageResource(R.drawable.salad);
+        iv4 = view.findViewById(R.id.iv4);
 
 
-        btnPlay9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Uri uri = Uri.parse("https://healthtalkmentaltalk.tistory.com/198");
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
-            }
-        });
+        iv4.setImageResource(R.drawable.sit);
+
+
+          btn4.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Uri uri = Uri.parse("https://www.youtube.com/watch?v=sTgMAZnlw44&list=PLTI10dby-phsSt78RhH0xKrFilfnjt5h9&index=11");
+                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    startActivity(intent);
+                }
+            });
 
     }
 

@@ -8,23 +8,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class FragmentFirst extends Fragment {
+public class Fragment8 extends Fragment {
     private int fragNumber;
-    private ImageView iv1;
-    private Button btnPlay1;
+    private ImageView iv8;
+    private Button btn8;
 
-    public static FragmentFirst newInstance(int fragNumber){
-        FragmentFirst fragmentFirst = new FragmentFirst();
+    public static Fragment8 newInstance(int fragNumber){
+        Fragment8 fragment8 = new Fragment8();
         Bundle bundle=new Bundle();
         bundle.putInt("fragNumber", fragNumber);
-        fragmentFirst.setArguments(bundle);
-        return fragmentFirst;
+        fragment8.setArguments(bundle);
+        return fragment8;
     }
 
     @Override
@@ -36,30 +35,32 @@ public class FragmentFirst extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = (ViewGroup) inflater.inflate(R.layout.fragment01, container, false);
+        View view = (ViewGroup) inflater.inflate(R.layout.fragment08, container, false);
 
         return view;
     }
 
-    // 이안에서 객체를 찾고 하고 싶은 event 처리를 다 하면 됨
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstancdState){
         super.onViewCreated(view,savedInstancdState);
-        btnPlay1 = (Button) view.findViewById(R.id.btnPlay1);
+        btn8 = (Button) view.findViewById(R.id.btn8);
 
-        iv1 = view.findViewById(R.id.iv1);
+        iv8 = view.findViewById(R.id.iv8);
 
 
-        iv1.setImageResource(R.drawable.decline);
+        iv8.setImageResource(R.drawable.grapefruit);
 
-        btnPlay1.setOnClickListener(new View.OnClickListener() {
+
+        btn8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Uri uri = Uri.parse("https://www.youtube.com/watch?v=AeDw1tlXczo");
+                Uri uri = Uri.parse("https://steptohealth.co.kr/diet-with-grapefruit-juice-after-meal/");
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
             }
         });
+
     }
 
     @Override
@@ -67,4 +68,3 @@ public class FragmentFirst extends Fragment {
         super.onStop();
     }
 }
-

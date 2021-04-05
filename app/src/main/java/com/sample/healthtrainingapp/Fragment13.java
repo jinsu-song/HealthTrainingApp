@@ -8,23 +8,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class FragmentSixth extends Fragment {
+public class Fragment13 extends Fragment {
     private int fragNumber;
-    private ImageView iv6;
-    private Button btnPlay6;
+    private ImageView iv13;
+    private Button btn13;
 
-    public static FragmentSixth newInstance(int fragNumber){
-        FragmentSixth  fragmentSixth = new FragmentSixth ();
+    public static Fragment13 newInstance(int fragNumber){
+        Fragment13 fragment13 = new Fragment13();
         Bundle bundle=new Bundle();
         bundle.putInt("fragNumber", fragNumber);
-        fragmentSixth.setArguments(bundle);
-        return fragmentSixth;
+        fragment13.setArguments(bundle);
+        return fragment13;
     }
 
     @Override
@@ -36,27 +35,27 @@ public class FragmentSixth extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = (ViewGroup) inflater.inflate(R.layout.fragment06, container, false);
+        View view = (ViewGroup) inflater.inflate(R.layout.fragment13, container, false);
 
         return view;
     }
 
-    // 이안에서 객체를 찾고 하고 싶은 event 처리를 다 하면 됨
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstancdState){
         super.onViewCreated(view,savedInstancdState);
-        btnPlay6 = (Button) view.findViewById(R.id.btnPlay6);
+        btn13 = (Button) view.findViewById(R.id.btn13);
 
-        iv6 = view.findViewById(R.id.iv6);
-
-
-        iv6.setImageResource(R.drawable.cheese);
+        iv13 = view.findViewById(R.id.iv13);
 
 
-        btnPlay6.setOnClickListener(new View.OnClickListener() {
+        iv13.setImageResource(R.drawable.whey);
+
+
+        btn13.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Uri uri = Uri.parse("https://steptohealth.co.kr/types-of-cheese-and-their-nutritional-value/");
+                Uri uri = Uri.parse("https://url.kr/zy56lt");
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
             }

@@ -8,23 +8,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class FragmentFourth extends Fragment {
+public class Fragment14 extends Fragment {
     private int fragNumber;
-    private ImageView iv4;
-    private Button btnPlay4;
+    private ImageView iv14;
+    private Button btn14;
 
-    public static FragmentFourth newInstance(int fragNumber){
-        FragmentFourth  fragmentFourth = new FragmentFourth ();
+    public static Fragment14 newInstance(int fragNumber){
+        Fragment14 fragment14 = new Fragment14();
         Bundle bundle=new Bundle();
         bundle.putInt("fragNumber", fragNumber);
-        fragmentFourth.setArguments(bundle);
-        return fragmentFourth;
+        fragment14.setArguments(bundle);
+        return fragment14;
     }
 
     @Override
@@ -36,31 +35,31 @@ public class FragmentFourth extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = (ViewGroup) inflater.inflate(R.layout.fragment04, container, false);
+        View view = (ViewGroup) inflater.inflate(R.layout.fragment14, container, false);
 
         return view;
     }
 
-    // 이안에서 객체를 찾고 하고 싶은 event 처리를 다 하면 됨
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstancdState){
         super.onViewCreated(view,savedInstancdState);
-        btnPlay4 = (Button) view.findViewById(R.id.btnPlay4);
+        btn14 = (Button) view.findViewById(R.id.btn14);
 
-        iv4 = view.findViewById(R.id.iv4);
-
-
-        iv4.setImageResource(R.drawable.decline);
+        iv14 = view.findViewById(R.id.iv14);
 
 
-          btnPlay4.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Uri uri = Uri.parse("https://www.youtube.com/watch?v=AeDw1tlXczo");
-                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                    startActivity(intent);
-                }
-            });
+        iv14.setImageResource(R.drawable.perfect);
+
+
+        btn14.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri uri = Uri.parse("https://url.kr/3ijghw");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
 
     }
 
