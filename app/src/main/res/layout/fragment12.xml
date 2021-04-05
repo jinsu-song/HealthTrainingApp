@@ -10,6 +10,7 @@
         android:layout_marginLeft="@dimen/pageMarginAndOffset"
         android:layout_marginRight="@dimen/pageMarginAndOffset"
         android:background="#B3E5FC"
+        android:gravity="center"
         android:orientation="vertical">
 
         <LinearLayout

@@ -10,6 +10,7 @@
         android:layout_marginLeft="@dimen/pageMarginAndOffset"
         android:layout_marginRight="@dimen/pageMarginAndOffset"
         android:background="#81D4FA"
+        android:gravity="center"
         android:orientation="vertical">
 
         <ImageView
