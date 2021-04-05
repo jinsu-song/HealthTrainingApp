@@ -13,10 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".NoticeItemActivity"></activity>
-        <activity android:name=".NoticeActivity">
-
-        </activity>
+        <activity android:name=".ChargeInfoActivity"></activity>
+        <activity android:name=".NoticeItemActivity" />
+        <activity android:name=".NoticeActivity"></activity>
         <activity android:name=".PT_ReservationActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginSuccessActivity" />

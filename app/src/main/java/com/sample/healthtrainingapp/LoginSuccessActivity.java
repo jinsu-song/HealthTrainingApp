@@ -86,6 +86,11 @@ public class LoginSuccessActivity extends AppCompatActivity {
             Intent intent = new Intent(LoginSuccessActivity.this,NoticeActivity.class);
             startActivity(intent);
         });
+
+        btnChargeInfo.setOnClickListener(v->{
+            Intent intent = new Intent(LoginSuccessActivity.this, ChargeInfoActivity.class);
+            startActivity(intent);
+        });
     }   // end of eventHandlerFunc
 
 
