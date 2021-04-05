@@ -28,6 +28,12 @@ public class MainActivity extends AppCompatActivity {
     public static final int TYPE_WIFI = 1;
     public static final int TYPE_MOBILE = 2;
     public static final int TYPE_NOT_CONNECTED = 3;
+    private static UserData userData = UserData.getInstance();
+
+    public static UserData getUserData(){
+        return MainActivity.userData;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,12 +85,16 @@ public class MainActivity extends AppCompatActivity {
                             if (success == true) {
                                 String getId = jo.getString("id");
                                 String getPassword = jo.getString("password");
+                                String getAuthority = jo.getString("authority");
+
+                                userData.setUserId(getId);
+                                userData.setUserPassword(getPassword);
+                                userData.setUserAuthority(getAuthority);
 
 
                                 if(id.equals(getId) && password.equals(getPassword)){
                                     Intent intent = new Intent(MainActivity.this, LoginSuccessActivity.class);
                                     Toast.makeText(MainActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();
-                                    intent.putExtra("id",id);
                                     startActivity(intent);
 
                                 }else{

@@ -42,10 +42,6 @@ public class LoginSuccessActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_success);
-        Intent intent = getIntent();
-
-        id = intent.getStringExtra("id");
-
 
         // 위젯 아이디 찾기
         findViewByIdFunc();
@@ -248,12 +244,8 @@ public class LoginSuccessActivity extends AppCompatActivity {
         viewPager2.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
 
 
-
-
         viewPager2.setCurrentItem(100);
         viewPager2.setOffscreenPageLimit(3);
-
-
 
         viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
@@ -273,7 +265,6 @@ public class LoginSuccessActivity extends AppCompatActivity {
                 indicator2.animatePageSelected(position % numberPage);
             }
         });
-
 
 
         viewPager2.setPageTransformer(new ViewPager2.PageTransformer() {

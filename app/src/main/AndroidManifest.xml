@@ -13,15 +13,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".PT_ReservationActivity"></activity>
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginSuccessActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".NoticeItemActivity"></activity>
+        <activity android:name=".NoticeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".PT_ReservationActivity" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".LoginSuccessActivity" />
+        <activity android:name=".MainActivity">
+
         </activity>
     </application>
 
