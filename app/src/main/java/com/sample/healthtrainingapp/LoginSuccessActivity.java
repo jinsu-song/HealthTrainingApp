@@ -55,10 +55,9 @@ public class LoginSuccessActivity extends AppCompatActivity {
         viewFlipperFunc();
 
 
+        // 뷰 페이저에 프레그먼트 개수 및 프레그먼트 설정
         ViewPagerFunc1();
-
         ViewPagerFunc2();
-
         ViewPagerFunc3();
 
 
@@ -74,7 +73,6 @@ public class LoginSuccessActivity extends AppCompatActivity {
         //자동으로 화면이 바뀌게 함
         viewFlipper.setAutoStart(true);
     }
-
 
     private void eventHandlerFunc() {
         btnPT_Reservation.setOnClickListener(v->{
@@ -200,6 +198,7 @@ public class LoginSuccessActivity extends AppCompatActivity {
         });
 
 
+        // 뷰페이저 애니메이션 설정
         viewPager2.setPageTransformer(new ViewPager2.PageTransformer() {
             @Override
             public void transformPage(@NonNull View page, float position) {
@@ -261,7 +260,6 @@ public class LoginSuccessActivity extends AppCompatActivity {
         });
 
 
-
         viewPager3.setPageTransformer(new ViewPager2.PageTransformer() {
             @Override
             public void transformPage(@NonNull View page, float position) {
@@ -279,11 +277,7 @@ public class LoginSuccessActivity extends AppCompatActivity {
                 }
             }
         });
-
-
     }
-
-
 
     private void openAndCloseDrawable() {
         ibOpenDrawable.setOnClickListener(v->{

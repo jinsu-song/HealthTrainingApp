@@ -51,7 +51,7 @@ public class NoticeActivity extends AppCompatActivity {
 
     private void findViewByIdFunc() {
         noticeRecyclerView = findViewById(R.id.noticeRecyclerView);
-        btnWrite = findViewById(R.id.btnWrite);
+//        btnWrite = findViewById(R.id.btnWrite);
     }   // end of findViewByIdFunc
 
     private void eventHandlerFunc() {

@@ -14,13 +14,13 @@
         android:layout_height="0dp"
         android:layout_weight="7"
         android:scrollbars="vertical"/>
-    <Button
-        android:id="@+id/btnWrite"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="글쓰기"
-        android:textSize="@dimen/TextSize"
-        android:textStyle="bold"/>
+<!--    <Button-->
+<!--        android:id="@+id/btnWrite"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="1"-->
+<!--        android:text="글쓰기"-->
+<!--        android:textSize="@dimen/TextSize"-->
+<!--        android:textStyle="bold"/>-->
 
 </LinearLayout>
