@@ -30,7 +30,7 @@ public class LoginSuccessActivity extends AppCompatActivity {
     private FragmentStateAdapter pagerAdapter, pagerAdapter2, pagerAdapter3;
 
 
-    private ViewFlipper viewFlipper, viewFlipper2;
+    private ViewFlipper viewFlipper;
 
     // 로그인 또는 회원가입 페이지에서 id값을 intent로 받는 변수
     private String id;
@@ -58,8 +58,6 @@ public class LoginSuccessActivity extends AppCompatActivity {
 
         viewFlipperFunc();
 
-        viewFlipperFunc2();
-
 
         ViewPagerFunc1();
 
@@ -81,10 +79,6 @@ public class LoginSuccessActivity extends AppCompatActivity {
         viewFlipper.setAutoStart(true);
     }
 
-    private void viewFlipperFunc2() {
-        viewFlipper2.setFlipInterval(2000);
-        viewFlipper2.setAutoStart(true);
-    }
 
     private void eventHandlerFunc() {
         btnPT_Reservation.setOnClickListener(v->{
@@ -317,6 +311,5 @@ public class LoginSuccessActivity extends AppCompatActivity {
         viewPager2 = findViewById(R.id.viewPager2);
         viewPager3 = findViewById(R.id.viewPager3);
         viewFlipper = findViewById(R.id.viewFlipper);
-        viewFlipper2 = findViewById(R.id.viewFlipper2);
     }   // end of findViewByIdFunc
 }
